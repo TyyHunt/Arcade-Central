@@ -1,3 +1,7 @@
 <h3><%= @player.username %></h3>
 <p>Age: <%= @player.age %></p>
 <p>Allowance: $<%= @player.allowance %></p>
+
+<% if current_user %>
+    <%= link_to "Adjust your stats", edit_player_path(@player) %>
+<% end %>

@@ -16,10 +16,32 @@ class PlayersController < ApplicationController
         @player = Player.new(player_params)
        
         if @player.save
-            session[:user_id] = @player.id
+            session[:player_id] = @player.id
             redirect_to @player
         else
             render 'new'
+        end
+    end
+
+    def edit
+        if current_user
+            @player = current_user.id
+        else
+            @player = Player.find_by(id: params[:id])
+            if @player = nil
+                redirect_to root_path
+            else
+                redirect_to @player
+            end
+        end
+    end
+
+    def update
+        @player = Player.find(params[:id])
+        if @player.update(player_params)
+            redirect_to @player
+        else
+            redirect to player_edit_path(@player)
         end
     end
 

@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
     def new
-        @users = User.all
-        @user = User.new
+        @players = Players.all
+        @player = Player.new
     end
 
     def create
-        @user = User.find_by(name: params[:user_name])
-        if @user
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
+        @player = {Player}.find_by(name: params[:username])
+        if @player
+            session[:player_id] = @player.id
+            redirect_to player_path(@player)
         else
             render :new
         end
