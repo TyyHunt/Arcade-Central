@@ -1,3 +1,5 @@
+<h1>Edit Your Stats </h1>
+
 <%= form_for @player do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
@@ -8,9 +10,6 @@
     <%= f.label :allowance %>
     <%= f.number_field :allowance, :class => 'text_field', :step => 0.25 %>
     <br>
-    <%= f.label :create_password %>
-    <%= f.text_field :password_digest %>
-    <br>
 
     <%= f.submit %>
-  <% end %>
+<% end %>

@@ -25,7 +25,7 @@ class PlayersController < ApplicationController
 
     def edit
         if current_user
-            @player = current_user.id
+            @player = current_user
         else
             @player = Player.find_by(id: params[:id])
             if @player = nil
@@ -48,7 +48,7 @@ class PlayersController < ApplicationController
     private
 
     def player_params
-        params.require(:player).permit(:username, :age, :allowance, :password_digest)
+        params.require(:player).permit(:username, :age, :allowance, :password)
     end
 
 end
