@@ -1,5 +1,7 @@
 <h1>Create A New Player</h1>
 
+<%= render 'errors' %>
+
 <%= form_for @player do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>

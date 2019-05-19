@@ -1,5 +1,7 @@
 <h1>Edit Your Stats </h1>
 
+<%= render 'errors' %>
+
 <%= form_for @player do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
