@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :games
-  resources :arcades
+
+  resources :arcades, only: [:show] do
+    resources :games, only: [:show, :index]
+  end
+ 
+  resources :games, only: [:index, :show, :new, :create, :edit, :update]
   resources :players
 
-  root to: 'static#home'
+  root 'static#home'
   get '/signin' => 'sessions#new'
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
