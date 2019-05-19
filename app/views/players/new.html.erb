@@ -3,16 +3,16 @@
 <%= render 'errors' %>
 
 <%= form_for @player do |f| %>
-    <%= f.label :username %>
+    <%= f.label 'Create a Username: ' %>
     <%= f.text_field :username %>
     <br>
-    <%= f.label :age %>
+    <%= f.label 'How old are you? ' %>
     <%= f.number_field :age %>
     <br>
-    <%= f.label :allowance %>
+    <%= f.label 'What\'s your allowance? ' %>
     <%= f.number_field :allowance, :class => 'text_field', :step => 0.25 %>
     <br>
-    <%= f.label :password %>
+    <%= f.label 'Create a password: ' %>
     <%= f.text_field :password %>
     <br>
 

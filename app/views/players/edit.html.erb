@@ -3,13 +3,13 @@
 <%= render 'errors' %>
 
 <%= form_for @player do |f| %>
-    <%= f.label :username %>
+    <%= f.label 'Username' %>
     <%= f.text_field :username %>
     <br>
-    <%= f.label :age %>
+    <%= f.label 'Age' %>
     <%= f.number_field :age %>
     <br>
-    <%= f.label :allowance %>
+    <%= f.label 'Allowance' %>
     <%= f.number_field :allowance, :class => 'text_field', :step => 0.25 %>
     <br>
 
