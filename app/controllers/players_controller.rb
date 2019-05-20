@@ -24,15 +24,13 @@ class PlayersController < ApplicationController
     end
 
     def edit
-        if current_user
-            @player = current_user
+        @player = Player.find_by(id: params[:id])
+        if @player == current_user
+            render 'edit'
+        elsif @player == nil
+            redirect_to root_path
         else
-            @player = Player.find_by(id: params[:id])
-            if @player = nil
-                redirect_to root_path
-            else
-                redirect_to @player
-            end
+            redirect_to @player
         end
     end
 
