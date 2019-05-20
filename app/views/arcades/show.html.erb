@@ -1,0 +1,22 @@
+<h3><%= @arcade.name %></h3>
+<p><%= @arcade.location %></p>
+<p><%= @arcade.owner_name %></p>
+<p>Open from: <%= @arcade.open_time - @arcade.close_time %></p>
+<p>Open since: <%= @arcade.est_year %>
+
+<% @arcade.games.each do |game| %>
+    <h4><%= game.name %><h4>
+    <p>Max Players: <%= game.num_players %></p>
+    <p>Costs: <%= game.cost %></p>
+    <p>In Order: <%= game.working %></p>
+    <p>Current Player: <%= game.player_id.username %></p>
+<% end %>
+
+
+
+    t.string :name
+    t.integer :num_players
+    t.float :cost
+    t.boolean :working
+    t.integer :arcade_id
+    t.integer :player_id
