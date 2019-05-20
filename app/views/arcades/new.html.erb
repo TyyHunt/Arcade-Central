@@ -1,14 +1,14 @@
 <h2>Register Your Arcade</h2>
 
-<% if @player.errors.any? %>
+<% if @arcade.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@player.errors.count, "error") %>
-      prohibited this article from being saved:
+      <%= pluralize(@arcade.errors.count, "error") %>
+      prohibited this arcade from being saved:
     </h2>
  
     <ul>
-    <% @player.errors.full_messages.each do |msg| %>
+    <% @arcade.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -30,14 +30,8 @@
     <br>
     <%= f.label 'What year was the acrade established? ' %>
     <%= f.number_field :est_year %>
-
-    <%= hidden_field 
     <br>
+    <%= f.submit %>
+<% end %>
 
 
-    t.string :name
-    t.string :location
-    t.integer :open_time
-    t.integer :close_time
-    t.integer :est_year
-    t.string :owner_name
