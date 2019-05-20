@@ -1,9 +1,11 @@
 <% @arcades.each do |arcade| %>
-    <h3><%= arcade.name %></h3>
-    <p><%= arcade.location %></p>
-    <p><%= arcade.owner_name %></p>
-    <p>Open from: <%= arcade.open_time - arcade.close_time %></p>
-    <p>Open since: <%= arcade.est_year %>
-    <% link_to 'Go to Arcade', arcade_path(arcade) %>
+    <div>
+        <h3><%= arcade.name %></h3>
+        <p><%= arcade.location %></p>
+        <p><%= arcade.owner_name %></p>
+        <p>Open from: <%= arcade.open_time %> - <%= arcade.close_time %></p>
+        <p>Open since: <%= arcade.est_year %>
+        <% link_to 'Go to Arcade', arcade_path(arcade) %>
+    </div>
 <% end %>
 
