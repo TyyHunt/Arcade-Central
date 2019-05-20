@@ -1,0 +1,43 @@
+<h2>Register Your Arcade</h2>
+
+<% if @player.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@player.errors.count, "error") %>
+      prohibited this article from being saved:
+    </h2>
+ 
+    <ul>
+    <% @player.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @arcade do |f| %>
+    <%= f.label 'Name of arcade: ' %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label 'Where is the arcade located? ' %>
+    <%= f.text_field :location %>
+    <br>
+    <%= f.label 'At what time will your arcade open: ' %>
+    <%= f.number_field :open_time %>
+    <br>
+    <%= f.label 'At what time will your arcade close: ' %>
+    <%= f.number_field :close_time %>
+    <br>
+    <%= f.label 'What year was the acrade established? ' %>
+    <%= f.number_field :est_year %>
+
+    <%= hidden_field 
+    <br>
+
+
+    t.string :name
+    t.string :location
+    t.integer :open_time
+    t.integer :close_time
+    t.integer :est_year
+    t.string :owner_name
