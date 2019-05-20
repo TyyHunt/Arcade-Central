@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :players
 
   root 'static#home'
-  get '/signin' => 'sessions#new'
+  get '/signin' => 'players#new'
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'

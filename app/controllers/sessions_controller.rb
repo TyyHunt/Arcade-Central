@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
     def new
-        @players = Players.all
         @player = Player.new
     end
 

@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
     def show
-        @player = Player.find(params[:id])
-        if logged_in?
+        @player = Player.find_by(id: params[:id])
+        if logged_in? && @player != nil
             render :show
         else
             redirect_to root_path
@@ -15,8 +15,7 @@ class PlayersController < ApplicationController
     def create
         @player = Player.new(player_params)
        
-        if @player.valid?
-            @player.save
+        if @player.save
             session[:player_id] = @player.id
             redirect_to @player
         else
@@ -48,6 +47,7 @@ class PlayersController < ApplicationController
 
     def destroy
         Player.find(params[:id]).destroy
+        session.clear
         redirect_to root_path
     end
 
