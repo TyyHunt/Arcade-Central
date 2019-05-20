@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+    
     def show
         @player = Player.find_by(id: params[:id])
         if logged_in? && @player != nil

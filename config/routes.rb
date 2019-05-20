@@ -6,6 +6,7 @@ Rails.application.routes.draw do
  
   resources :games, only: [:index, :show, :new, :create, :edit, :update]
   resources :players
+  resources :arcades
 
   root 'static#home'
   get '/signin' => 'players#new'
