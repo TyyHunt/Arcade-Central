@@ -52,6 +52,7 @@ class GamesController < ApplicationController
             redirect_to root_path
         else
             redirect_to game_path(@game)
+        end
     end
 
     def game_params(*args)
