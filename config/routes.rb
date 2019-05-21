@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
 
   root 'static#home'
-  get '/signin' => 'players#new'
+  get '/signup' => 'players#new'
+  get '/signin' => 'sessions#new'
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'

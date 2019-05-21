@@ -3,6 +3,13 @@
 <p><%= @arcade.owner_name %></p>
 <p>Open from: <%= @arcade.open_time - @arcade.close_time %></p>
 <p>Open since: <%= @arcade.est_year %>
+<br>
+<% if current_user.username == @arcade.owner_name %>
+    <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
+    <%= form_tag arcade_path(@arcade), method: "delete", data: { confirm: "Are you sure?" } do %>
+        <%= submit_tag "Close this Arcade" %>
+    <% end %>
+<% end %>
 
 <% @arcade.games.each do |game| %>
     <h4><%= game.name %><h4>
