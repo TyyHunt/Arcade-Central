@@ -11,4 +11,46 @@ class GamesController < ApplicationController
           @games = Game.all
         end
     end
+
+    def new
+        @game = game.new
+    end
+
+    def create
+        @game = Game.new(game_params())
+        if @game.save
+            redirect_to game_path(@game)
+        else
+            redirect_to new_game_path
+        end
+    end
+
+    def edit
+        @game = Game.find_by(id: params[:id])
+        if @game.arcade.owner_name == current_user.username
+            render 'edit'
+        elsif @game == nil
+            redirect_to root_path
+        else
+            redirect_to @game
+        end
+    end
+
+    def update
+        @game = Game.find(params[:id])
+        if @game.update(arcade_params())
+            redirect_to @game
+        else
+            redirect to game_edit_path(@game)
+        end
+    end
+
+    def destroy
+        @game = Game.find(params[:id])
+        if @game.arcade.owner_name == current_user.username
+            @game.destroy
+            redirect_to root_path
+        else
+            redirect_to game_path(@game)
+    end
 end

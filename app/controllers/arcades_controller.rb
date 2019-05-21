@@ -4,6 +4,15 @@ class ArcadesController < ApplicationController
         @arcades = Arcade.all
     end
 
+    def show
+        @arcade = Arcade.find_by(id: params[:id])
+        if @arcade == nil
+            redirect_to root_path
+        else
+            render 'show'
+        end
+    end
+
     def new
         @arcade = Arcade.new
     end
@@ -14,15 +23,6 @@ class ArcadesController < ApplicationController
             redirect_to arcade_path(@arcade)
         else
             redirect_to new_arcade_path
-        end
-    end
-
-    def show
-        @arcade = Arcade.find_by(id: params[:id])
-        if @arcade == nil
-            redirect_to root_path
-        else
-            render 'show'
         end
     end
 
@@ -39,7 +39,7 @@ class ArcadesController < ApplicationController
 
     def update
         @arcade = Arcade.find(params[:id])
-        if @Arcade.update(arcade_params(:name, :open_time, :close_time))
+        if @arcade.update(arcade_params(:name, :open_time, :close_time))
             redirect_to @arcade
         else
             redirect to arcade_edit_path(@arcade)
