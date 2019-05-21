@@ -17,7 +17,7 @@ class GamesController < ApplicationController
     end
 
     def create
-        @game = Game.new(game_params())
+        @game = Game.new(game_params(:name, :num_players, :cost, :working, :arcade_id))
         if @game.save
             redirect_to game_path(@game)
         else
@@ -38,7 +38,7 @@ class GamesController < ApplicationController
 
     def update
         @game = Game.find(params[:id])
-        if @game.update(arcade_params())
+        if @game.update(game_params(:name, :num_players, :cost, :working, :arcade_id))
             redirect_to @game
         else
             redirect to game_edit_path(@game)
@@ -52,5 +52,9 @@ class GamesController < ApplicationController
             redirect_to root_path
         else
             redirect_to game_path(@game)
+    end
+
+    def game_params(*args)
+        params.require(:game).permit(*args)
     end
 end
