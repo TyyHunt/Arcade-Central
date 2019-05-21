@@ -47,8 +47,13 @@ class ArcadesController < ApplicationController
     end
 
     def destroy
-        Arcade.find(params[:id]).destroy
-        redirect_to root_path
+        @arcade = Arcade.find(params[:id])
+        if @arcade.owner_name == current_user.username
+            @arcade.destroy
+            redirect_to root_path
+        else
+            redirect_to @arcade
+        end
     end
 
     private
