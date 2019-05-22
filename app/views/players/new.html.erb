@@ -1,8 +1,8 @@
-<h1>Create A New Player</h1>
+<div class="new-edit-form card">
+  <h1 class="page-title">Create A New Player</h1>
+  <%= render 'errors' %>
 
-<%= render 'errors' %>
-
-<%= form_for @player do |f| %>
+  <%= form_for @player, :html => {class: "form-group"} do |f| %>
     <%= f.label 'Create a Username: ' %>
     <%= f.text_field :username %>
     <br>
@@ -18,3 +18,4 @@
 
     <%= f.submit %>
   <% end %>
+</div>
