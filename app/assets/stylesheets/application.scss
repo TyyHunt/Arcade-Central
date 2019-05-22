@@ -14,14 +14,26 @@
 
 div.navbar.navbar-inverse.navbar-fixed-top {
      color: #fff;
-     background: #333;
+     background: #050027;
  }
 
 body, a {
     color: #fff;
-    background: #333;
 }
 
 div.home-page {
     text-align: center;
+}
+
+body {
+    background: url(https://images.pexels.com/photos/1293260/pexels-photo-1293260.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1.headline {
+    font-size: 5.5rem;
+    margin-top: 400px;
 }
