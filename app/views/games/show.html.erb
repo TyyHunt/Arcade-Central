@@ -7,7 +7,7 @@
     <p>Playable: <%= @game.working %></p>
 </div>
 
-<% if logged_in? && current_user.username == @game.arcade.owner_name %>
+<% if authorized? %>
     <%= link_to "Edit your game", edit_player_path(@game) %>
     <%= form_tag player_path(@game.id), method: "delete", data: { confirm: "Pull the plug?" } do %>
         <%= submit_tag "Shut down this game" %>

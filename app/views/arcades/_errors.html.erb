@@ -1,0 +1,14 @@
+<% if @arcade.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@arcade.errors.count, "error") %>
+    prohibited this arcade from being saved:
+  </h2>
+
+  <ul>
+  <% @arcade.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
