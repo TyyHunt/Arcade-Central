@@ -1,0 +1,48 @@
+0000000000000000000000000000000000000000 eb87c09297343ee22d85041bd10a2a4c54415a47 TyyHunt <tyhunt04@gmail.com> 1558191801 -0700	commit (initial): initiated rails app framework
+eb87c09297343ee22d85041bd10a2a4c54415a47 bd0acd10db57a642d27b4f36b55a7d3d74562a06 TyyHunt <tyhunt04@gmail.com> 1558192501 -0700	commit: first commit
+bd0acd10db57a642d27b4f36b55a7d3d74562a06 81bcb24819e8bb465713890d5d172b757f6e1fc6 TyyHunt <tyhunt04@gmail.com> 1558192574 -0700	pull origin master: Merge made by the 'recursive' strategy.
+81bcb24819e8bb465713890d5d172b757f6e1fc6 4e3d68b5fcdd130bf52ef5a4b2252d5de6529dad TyyHunt <tyhunt04@gmail.com> 1558192948 -0700	commit: created Player resource
+4e3d68b5fcdd130bf52ef5a4b2252d5de6529dad 2ebcc893f849c0ab7d889509f536f4631f213c00 TyyHunt <tyhunt04@gmail.com> 1558193044 -0700	commit: filled in DB info for Player
+2ebcc893f849c0ab7d889509f536f4631f213c00 658166c4beccbdec3f7c01d5b288ca08dc7ad6b8 TyyHunt <tyhunt04@gmail.com> 1558193358 -0700	commit: created Arcade resource
+658166c4beccbdec3f7c01d5b288ca08dc7ad6b8 a9b0d848b71fd6e112a03d4a88cc183263c1701f TyyHunt <tyhunt04@gmail.com> 1558193479 -0700	commit: filled in Arcade DB
+a9b0d848b71fd6e112a03d4a88cc183263c1701f 367e21eae3d750b4530761f74a00b4922c4afb4f TyyHunt <tyhunt04@gmail.com> 1558193539 -0700	commit: created Games resource
+367e21eae3d750b4530761f74a00b4922c4afb4f 17978b001fb4cf742752ee306437bf2a4e2cfe0e TyyHunt <tyhunt04@gmail.com> 1558193632 -0700	commit: filled in Games DB table
+17978b001fb4cf742752ee306437bf2a4e2cfe0e c907be7d2e46069bfa40f1833725480693b62273 TyyHunt <tyhunt04@gmail.com> 1558194334 -0700	commit: added HTML to application.html.erb
+c907be7d2e46069bfa40f1833725480693b62273 e76fcf984985a820cc993fbfb6f3924b77c5ddc1 TyyHunt <tyhunt04@gmail.com> 1558194693 -0700	commit: added helper methods to ApplicationController
+e76fcf984985a820cc993fbfb6f3924b77c5ddc1 1ce6b24ddb3b69afb76dde274b3dfed6d2afb3b3 TyyHunt <tyhunt04@gmail.com> 1558195743 -0700	commit: created root routing and created sessions_controller
+1ce6b24ddb3b69afb76dde274b3dfed6d2afb3b3 c68dedea200994e6130aa3fa2c35a6854e1f7958 TyyHunt <tyhunt04@gmail.com> 1558195888 -0700	commit: added bcrypt gem
+c68dedea200994e6130aa3fa2c35a6854e1f7958 3bc1d235f24aa478062d1ea1ddac3153d668cf8f TyyHunt <tyhunt04@gmail.com> 1558199130 -0700	commit: adding actions and views to PlayersController
+3bc1d235f24aa478062d1ea1ddac3153d668cf8f 6919773641c4d0b2ae9c4a401ebe58d4ee306095 TyyHunt <tyhunt04@gmail.com> 1558221522 -0700	commit: creating edit route for Players
+6919773641c4d0b2ae9c4a401ebe58d4ee306095 d332f2ed9e943de7caaaaf0a4b8927ab4872839e TyyHunt <tyhunt04@gmail.com> 1558222936 -0700	commit: working through PlayerController errors
+d332f2ed9e943de7caaaaf0a4b8927ab4872839e e59cbb49f6bc1c93b32af9dc5e23dbf553e1dda8 TyyHunt <tyhunt04@gmail.com> 1558224005 -0700	commit: created destroy action for Player, also added protection arount editing and deleting Player information
+e59cbb49f6bc1c93b32af9dc5e23dbf553e1dda8 1d2c8244b69697d4a597ac96518172fc62667fc6 TyyHunt <tyhunt04@gmail.com> 1558227424 -0700	commit: starting nested routes for Arcades and Games
+1d2c8244b69697d4a597ac96518172fc62667fc6 b6b3e98f3c5d16c0bb3a8b26b5cb4b3335846c4c TyyHunt <tyhunt04@gmail.com> 1558227585 -0700	commit: creating show and index actions in GamesController
+b6b3e98f3c5d16c0bb3a8b26b5cb4b3335846c4c be61493440c4c6bf25666ae2a4560d5d24915612 TyyHunt <tyhunt04@gmail.com> 1558308874 -0700	commit: adding validations to Player model
+be61493440c4c6bf25666ae2a4560d5d24915612 e8de57c7f54dfdec10d593f237e0367d8d944ad0 TyyHunt <tyhunt04@gmail.com> 1558309144 -0700	commit: added validation check in create player action
+e8de57c7f54dfdec10d593f237e0367d8d944ad0 24709915185d9ac1dc097724682ce880452ab76f TyyHunt <tyhunt04@gmail.com> 1558309357 -0700	commit: changed labels on new and edit paths for player
+24709915185d9ac1dc097724682ce880452ab76f fc67d2f7997ad8b2a6bc5d9a4b8f18add5665110 TyyHunt <tyhunt04@gmail.com> 1558310868 -0700	commit: fixing error when unable to find player by id
+fc67d2f7997ad8b2a6bc5d9a4b8f18add5665110 3f340eb6cd00cc845c1936052b4391d795379c96 TyyHunt <tyhunt04@gmail.com> 1558313603 -0700	commit: changed edit routing to only allow edit on your account
+3f340eb6cd00cc845c1936052b4391d795379c96 009c27204734b58ea3a28b99f0b6247845ea4905 TyyHunt <tyhunt04@gmail.com> 1558376840 -0700	commit: created views for index and show on Arcade
+009c27204734b58ea3a28b99f0b6247845ea4905 db0de7c49625351b74deae546bbc18c509f5fe79 TyyHunt <tyhunt04@gmail.com> 1558377040 -0700	commit: added edit path for each game for arcade owner
+db0de7c49625351b74deae546bbc18c509f5fe79 c060da8ff79011d1220daaab59305826dd5745c7 TyyHunt <tyhunt04@gmail.com> 1558377779 -0700	commit: created new arcade action and view
+c060da8ff79011d1220daaab59305826dd5745c7 4811f388bfe0facaf044b142e9bd1cb23905c7e6 TyyHunt <tyhunt04@gmail.com> 1558377937 -0700	commit: created arcade create action
+4811f388bfe0facaf044b142e9bd1cb23905c7e6 cfdee2f4b2c79bd2a737d2488b3eac2f381d8e12 TyyHunt <tyhunt04@gmail.com> 1558378394 -0700	commit: fixing errors in arcade routes
+cfdee2f4b2c79bd2a737d2488b3eac2f381d8e12 4d439e7d19e8593f3eeb0f611bdd465b8c44f1cd TyyHunt <tyhunt04@gmail.com> 1558383847 -0700	commit: editing arcade routes
+4d439e7d19e8593f3eeb0f611bdd465b8c44f1cd 76a9d9057600c0c6a080b3cb311331d7e7b59838 TyyHunt <tyhunt04@gmail.com> 1558385546 -0700	commit: adding validations for Arcade model
+76a9d9057600c0c6a080b3cb311331d7e7b59838 5bec6a84808c5655afd4a576ca8bdd4d832bb07b TyyHunt <tyhunt04@gmail.com> 1558398718 -0700	commit: creating securities on paths that should not be accessable to anyone but the owner of the arcade
+5bec6a84808c5655afd4a576ca8bdd4d832bb07b 358e73676fcf08bd404b66713ba75a990e7455e5 TyyHunt <tyhunt04@gmail.com> 1558401704 -0700	commit: created actions for games_controller
+358e73676fcf08bd404b66713ba75a990e7455e5 168411959d24d80b5fd9dc9152fdb14d08bb19f2 TyyHunt <tyhunt04@gmail.com> 1558402261 -0700	commit: added protections against destroying games and arcades without proper identification
+168411959d24d80b5fd9dc9152fdb14d08bb19f2 91f7623576a47181cae6920dc566b747e6405e58 TyyHunt <tyhunt04@gmail.com> 1558402781 -0700	commit: added strong params to Game controller
+91f7623576a47181cae6920dc566b747e6405e58 c6cccb7fee56314fd29d716ed976c5c33d7b4f42 TyyHunt <tyhunt04@gmail.com> 1558403223 -0700	commit: added validations to Game model
+c6cccb7fee56314fd29d716ed976c5c33d7b4f42 ca85f6c49c8452c4040a652af0424be390574d31 TyyHunt <tyhunt04@gmail.com> 1558404859 -0700	commit: added bootstrap to application
+ca85f6c49c8452c4040a652af0424be390574d31 1738506f7fa349422bee6635ea91b6fce64f5266 TyyHunt <tyhunt04@gmail.com> 1558539037 -0700	commit: adding css to application
+1738506f7fa349422bee6635ea91b6fce64f5266 29d49724c468dd3d75f1358b3ed1a82ceb4b82ea TyyHunt <tyhunt04@gmail.com> 1558539550 -0700	commit: continuing to add css
+29d49724c468dd3d75f1358b3ed1a82ceb4b82ea f863f0f38e55d39c1f432917dc38a56928e01fb5 TyyHunt <tyhunt04@gmail.com> 1558543521 -0700	commit: continuing to add css
+f863f0f38e55d39c1f432917dc38a56928e01fb5 31c5b8741eeb888663eb33866f9243b0007735f8 TyyHunt <tyhunt04@gmail.com> 1558546019 -0700	commit: continuing with css
+31c5b8741eeb888663eb33866f9243b0007735f8 9be58cd788d177fd7e2279f0dce85a23ce8b8d6f TyyHunt <tyhunt04@gmail.com> 1558583833 -0700	commit: adding css to application
+9be58cd788d177fd7e2279f0dce85a23ce8b8d6f 58b402b8a18799c8840d30ac3779c584c088b8d3 TyyHunt <tyhunt04@gmail.com> 1558584450 -0700	commit: adding div around new and edit forms to allow for styling
+58b402b8a18799c8840d30ac3779c584c088b8d3 f5cb074ede80adfd951e1e973a1fafada74b64a3 TyyHunt <tyhunt04@gmail.com> 1558585267 -0700	commit: created view for Game index action
+f5cb074ede80adfd951e1e973a1fafada74b64a3 570937b88967dc22696a4ac17cf2ed89d2987a12 TyyHunt <tyhunt04@gmail.com> 1558585361 -0700	commit: created view for Game show action
+570937b88967dc22696a4ac17cf2ed89d2987a12 95316b24bf8a47cf988a46401023eb36c9541060 TyyHunt <tyhunt04@gmail.com> 1558585828 -0700	commit: created view for Game new action
+95316b24bf8a47cf988a46401023eb36c9541060 d4491f285b18ab8b6f2ba9ff2f2c029825c55e8f TyyHunt <tyhunt04@gmail.com> 1558587566 -0700	commit: troubleshooting Game new form and action
+                                                                                                                                                                                                   

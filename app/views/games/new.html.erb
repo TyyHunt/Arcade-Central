@@ -1,11 +1,11 @@
 <div class="new-edit-form card">
   <h1 class="page-title">Add A New Game</h1>
 
-  <% if @game.errors.any? %>
+<% if @game.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(@game.errors.count, "error") %>
-      prohibited this player from being saved:
+      prohibited this game from being saved:
     </h2>
  
     <ul>
@@ -35,7 +35,7 @@
     <%= f.label 'Yes' %>
     <%= f.radio_button :working, true %>
     <br>
-    <%= f.hidden_field :player_id, :value => nil %>
+    <%= f.hidden_field :player_id, :value => current_user.id %>
     <br>
     <%= f.submit %>
   <% end %>
