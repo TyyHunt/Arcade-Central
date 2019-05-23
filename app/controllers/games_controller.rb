@@ -1,18 +1,30 @@
 class GamesController < ApplicationController
 
     def show
-        @game = Game.find(params[:id])
+        if params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
+            @arcade = Arcade.find(params[:arcade_id])
+            @game = @arcade.games.find_by(id: params[:id])
+            if @game != nil
+                render 'show'
+            else
+                redirect_to arcade_path(@arcade)
+            end
+        end
+    end
+
     end
 
     def index
-        if params[:arcade_id]
-          @games = Game.find(params[:arcade_id]).posts
+        if params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
+            @arcade = Arcade.find(params[:arcade_id])
+            @games = @arcade.games
         else
-          @games = Game.all
+            @games = Game.all
         end
     end
 
     def new
+        @arcades = Arcade.all
         @game = game.new
     end
 
@@ -54,6 +66,8 @@ class GamesController < ApplicationController
             redirect_to game_path(@game)
         end
     end
+
+    private
 
     def game_params(*args)
         params.require(:game).permit(*args)
