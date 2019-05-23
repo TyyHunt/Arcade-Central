@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :security, :arcade_present?, :owner, :authorized?
 
     private
 
@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
 
     def logged_in?
         session[:player_id]
+    end
+
+    def security
+        if !logged_in?
+            redirect_to 'signin'
+        end
     end
 end

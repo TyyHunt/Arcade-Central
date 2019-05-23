@@ -70,9 +70,4 @@ class ArcadesController < ApplicationController
         end
     end
 
-    def security
-        if !logged_in?
-            redirect_to 'signin'
-        end
-    end
 end
