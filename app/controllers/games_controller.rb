@@ -2,16 +2,16 @@ class GamesController < ApplicationController
 
     def show
         if arcade_present?
-            @arcades = Arcade.find(params[:arcade_id])
-            @game = @arcades.games.find_by(id: params[:_id])
+            @arcade = Arcade.find(params[:arcade_id])
+            @game = @arcade.games.find_by(id: params[:id])
             if @game != nil
-                render 'show'
+                arcade_games_path(@game)
             else
-                redirect_to arcade_path(@arcades)
+                redirect_to arcade_path(@arcade)
             end
         else
             @game = Game.find(params[:id])
-            @arcades = @game.arcade
+            @arcade = @game.arcade
         end
     end
 
