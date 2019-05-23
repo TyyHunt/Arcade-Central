@@ -6,19 +6,13 @@ class ArcadesController < ApplicationController
 
     def show
         @arcade = Arcade.find_by(id: params[:id])
-        if @arcade == nil
-            redirect_to arcades_path
-        else
-            render 'show'
-        end
+        no_arcade?
+        render 'show'
     end
 
     def new
-        if logged_in?
-            @arcade = Arcade.new
-        else
-            redirect_to arcades_path
-        end
+        security
+        @arcade = Arcade.new
     end
 
     def create
@@ -32,10 +26,9 @@ class ArcadesController < ApplicationController
 
     def edit
         @arcade = Arcade.find_by(id: params[:id])
-        if @arcade.owner_name == current_user.username
+        no_arcade?
+        if owner
             render 'edit'
-        elsif @arcade == nil
-            redirect_to root_path
         else
             redirect_to @arcade
         end
@@ -51,8 +44,9 @@ class ArcadesController < ApplicationController
     end
 
     def destroy
-        @arcade = Arcade.find(params[:id])
-        if @arcade.owner_name == current_user.username
+        @arcade = Arcade.find_by(params[:id])
+        no_arcade?
+        if owner
             @arcade.destroy
             redirect_to root_path
         else
@@ -64,5 +58,21 @@ class ArcadesController < ApplicationController
 
     def arcade_params(*args)
         params.require(:arcade).permit(*args)
+    end
+
+    def owner
+        @arcade.owner_name == current_user.username
+    end
+
+    def no_arcade?
+        if @arcade == nil
+            redirect_to arcades_path
+        end
+    end
+
+    def security
+        if !logged_in?
+            redirect_to 'signin'
+        end
     end
 end
