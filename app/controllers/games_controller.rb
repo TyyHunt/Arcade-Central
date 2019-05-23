@@ -23,12 +23,12 @@ class GamesController < ApplicationController
     end
 
     def new
-        @arcades = Arcade.all
         @game = Game.new
     end
 
     def create
-        @game = Game.new(game_params(:name, :num_players, :cost, :working, :arcade_id))
+        @game = Game.new(game_params(:name, :num_players, :cost, :working, :arcade_id, :player_id))
+        raise params.inspect
         if @game.save
             redirect_to game_path(@game)
         else

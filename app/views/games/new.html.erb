@@ -35,6 +35,7 @@
     <%= f.label 'Yes' %>
     <%= f.radio_button :working, true %>
     <br>
+    <%= f.hidden_field :player_id, :value => nil %>
     <br>
     <%= f.submit %>
   <% end %>
