@@ -6,6 +6,7 @@ class ArcadesController < ApplicationController
 
     def show
         @arcade = Arcade.find_by(id: params[:id])
+        @games = @arcade.games
         no_arcade?
         arcade_path(@arcade)
     end

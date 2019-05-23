@@ -1,24 +1,3 @@
-<div class="card mb-3" style="max-width: 900px;">
-    <div class="row no-gutters">
-        <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img" alt="...">
-        </div>
-        <div class="card-body">
-            <div class="col-md-8">
-                <%= render 'arcade' %>
-            </div>
-        </div>
-    </div>
-</div>
-        
-<br>
-<% if owner %>
-    <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
-    <%= form_tag arcade_path(@arcade), method: "delete", data: { confirm: "Are you sure?" } do %>
-        <%= submit_tag "Close this Arcade" %>
-    <% end %>
-<% end %>
-
 <div class="container">
     <% @games.each do |game| %>
         <div class="card text-white bg-secondary mb-3 float-left inline" style="max-width: 18rem; height: 400px; width: 700px; margin: 30px;">
@@ -32,7 +11,7 @@
                 <p class="card-text">Current Player: <%= game.player.username %></p>
                 <br>
                 <%= link_to 'Check this game out', game_path(game) %>
-                <% if logged_in? && @arcade.owner_name == current_user.username %>
+                <% if authorized? %>
                     <%= link_to 'edit game', edit_game_path(game) %>
                 <% end %>
             </div>
