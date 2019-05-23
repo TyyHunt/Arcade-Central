@@ -7,7 +7,7 @@ class ArcadesController < ApplicationController
     def show
         @arcade = Arcade.find_by(id: params[:id])
         if @arcade == nil
-            redirect_to root_path
+            redirect_to arcades_path
         else
             render 'show'
         end

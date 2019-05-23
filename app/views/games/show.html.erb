@@ -4,7 +4,7 @@
             <img src="https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img" alt="...">
         </div>
         <div class="card-body">
-            <div class="col-md-8">            
+            <div class="col-md-12">            
                 <h3 class="card-title">Found at: <%= @arcade.name %></h3>
                 <p class="card-text">Located in: <%= @arcade.location %></p>
                 <p class="card-text">Owned by: <%= @arcade.owner_name %></p>
@@ -22,7 +22,7 @@
     <p>Playable: <%= @game.working %></p>
 </div>
 
-<% if current_user.username == @game.arcade.owner_name %>
+<% if logged_in? && current_user.username == @game.arcade.owner_name %>
     <%= link_to "Edit your game", edit_player_path(@game) %>
     <%= form_tag player_path(@game.id), method: "delete", data: { confirm: "Pull the plug?" } do %>
         <%= submit_tag "Shut down this game" %>

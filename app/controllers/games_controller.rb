@@ -42,7 +42,7 @@ class GamesController < ApplicationController
 
     def edit
         @game = Game.find_by(id: params[:id])
-        if @game.arcade.owner_name == current_user.username
+        if logged_in? && @game.arcade.owner_name == current_user.username
             render 'edit'
         elsif @game == nil
             redirect_to root_path
