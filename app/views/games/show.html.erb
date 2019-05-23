@@ -1,0 +1,14 @@
+<% if @arcade %>
+    <h3><%= @arcade.name %></h3>
+    <p><%= @arcade.location %></p>
+    <p><%= @arcade.owner_name %></p>
+    <p>Open from: <%= @arcade.open_time - @arcade.close_time %></p>
+    <p>Open since: <%= @arcade.est_year %>
+<% end %>
+
+<div>
+    <h3><%= @game.name %></h3>
+    <p>Number of players: <%= @game.num_players %></p>
+    <p>Cost per game: <%= @game.cost %></p>
+    <p>Playable: <%= @game.working %></p>
+</div>
