@@ -3,7 +3,8 @@ class GamesController < ApplicationController
     def show
         if params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
             @arcade = Arcade.find(params[:arcade_id])
-            @game = @arcade.games.find_by(id: params[:id])
+            @game = @arcade.games.find_by(id: params[:_id])
+            raise params.inspect
             if @game != nil
                 render 'show'
             else

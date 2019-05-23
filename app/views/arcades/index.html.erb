@@ -1,11 +1,21 @@
 <% @arcades.each do |arcade| %>
-    <div>
-        <h3><%= arcade.name %></h3>
-        <p><%= arcade.location %></p>
-        <p><%= arcade.owner_name %></p>
-        <p>Open from: <%= arcade.open_time %> - <%= arcade.close_time %></p>
-        <p>Open since: <%= arcade.est_year %>
-        <% link_to 'Go to Arcade', arcade_path(arcade) %>
+    <div class="card mb-3" style="max-width: 900px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img" alt="...">
+            </div>
+            <div class="card-body">
+                <div class="col-md-8">            
+                    <h2 class="card-title"><%= arcade.name %></h2>
+                    <p class="card-text">Located in: <%= arcade.location %></p>
+                    <p class="card-text">Owned by: <%= arcade.owner_name %></p>
+                    <p class="card-text">Open from: <%= arcade.open_time - arcade.close_time %></p>
+                    <p class="card-text">Open since: <%= arcade.est_year %>
+                    <br>
+                    <%= link_to 'Go to Arcade', arcade_path(arcade) %>
+                </div>
+            </div>
+        </div>
     </div>
 <% end %>
 
