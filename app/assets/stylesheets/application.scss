@@ -43,14 +43,29 @@ h1.page-title {
     font-size: 3rem;
 }
 
-.new-edit-form {
+.new-edit-form.card {
     background-color: #050027;
-    margin-top: 150px;
     text-align: center;
     padding: 10px 0;
+    border: 2px solid #050027;
+    box-shadow: 0 0 5px 5xp #050027;
+    border-radius: 10px;
+    width: 800px;
+    margin:  150px auto;
 }
 
 .custom-form-fields {
     width: 600px;
     margin: auto;
+}
+
+input {
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+button {
+    margin-top: 5px;
 }
