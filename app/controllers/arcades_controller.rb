@@ -5,7 +5,7 @@ class ArcadesController < ApplicationController
     end
 
     def show
-        @arcade = Arcade.find_by(id: params[:id])
+        @arcades = Arcade.find_by(id: params[:id])
         no_arcade?
         render 'show'
     end

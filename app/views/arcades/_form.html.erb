@@ -14,5 +14,7 @@
     <%= f.label 'What year was the acrade established? ' %>
     <%= f.number_field :est_year %>
     <br>
+    <%= f.hidden_field :owner_name, :value => current_user.username %>
+    <br>
     <%= f.submit %>
 <% end %>

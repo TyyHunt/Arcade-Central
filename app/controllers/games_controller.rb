@@ -1,24 +1,23 @@
 class GamesController < ApplicationController
 
     def show
-        if params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
-            @arcade = Arcade.find(params[:arcade_id])
-            @game = @arcade.games.find_by(id: params[:_id])
-            raise params.inspect
+        if arcade_present?
+            @arcades = Arcade.find(params[:arcade_id])
+            @game = @arcades.games.find_by(id: params[:_id])
             if @game != nil
                 render 'show'
             else
-                redirect_to arcade_path(@arcade)
+                redirect_to arcade_path(@arcades)
             end
         else
             @game = Game.find(params[:id])
-            @arcade = @game.arcade
+            @arcades = @game.arcade
         end
     end
 
 
     def index
-        if params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
+        if arcade_present?
             @arcade = Arcade.find(params[:arcade_id])
             @games = @arcade.games
         else
@@ -27,11 +26,8 @@ class GamesController < ApplicationController
     end
 
     def new
-        if logged_in?
-            @game = Game.new
-        else
-            redirect_to games_path
-        end
+        security
+        @game = Game.new
     end
 
     def create
@@ -46,7 +42,7 @@ class GamesController < ApplicationController
 
     def edit
         @game = Game.find_by(id: params[:id])
-        if logged_in? && @game.arcade.owner_name == current_user.username
+        if authorized?
             render 'edit'
         elsif @game == nil
             redirect_to root_path
@@ -66,7 +62,7 @@ class GamesController < ApplicationController
 
     def destroy
         @game = Game.find(params[:id])
-        if @game.arcade.owner_name == current_user.username
+        if authorized?
             @game.destroy
             redirect_to root_path
         else
@@ -78,5 +74,13 @@ class GamesController < ApplicationController
 
     def game_params
         params.require(:game).permit(:name, :num_players, :cost, :working, :arcade_id, :player_id)
+    end
+
+    def arcade_present?
+        params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
+    end
+
+    def authorized?
+        logged_in? && @game.arcade.owner_name == current_user.username
     end
 end

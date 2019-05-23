@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :arcades
-  resources :arcades, only: [:show] do
-    resources :games, only: [:show, :index]
+
+resources :arcades do
+    resources :games
   end
  
   resources :games, only: [:index, :show, :new, :create, :edit, :update]

@@ -14,7 +14,11 @@ class ApplicationController < ActionController::Base
 
     def security
         if !logged_in?
-            redirect_to 'signin'
+            redirect_to '/signin'
         end
+    end
+
+    def authorized?
+        logged_in? && @game.arcade.owner_name == current_user.username
     end
 end
