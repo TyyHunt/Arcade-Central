@@ -1,0 +1,21 @@
+<div class="new-edit-form card">
+  <h1 class="page-title">Add A New Game</h1>
+  <%= render 'errors' %>
+
+  <%= form_for @game, :html => {class: "form-group"} do |f| %>
+    <%= f.label 'Name of the game: ' %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label 'Maximum number of players: ' %>
+    <%= f.number_field :num_players %>
+    <br>
+    <%= f.label 'Is the game in working order? ' %>
+    <%= f.check_box :working %>
+    <br>
+    <%= f.label 'This game will belong to which arcade?' %>
+    <%= f.collection_select :arcade, Arcade.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</div>
