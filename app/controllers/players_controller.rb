@@ -28,8 +28,6 @@ class PlayersController < ApplicationController
         @player = Player.find_by(id: params[:id])
         if @player == current_user
             render 'edit'
-        elsif @player == nil
-            redirect_to root_path
         else
             redirect_to @player
         end
@@ -45,8 +43,10 @@ class PlayersController < ApplicationController
     end
 
     def destroy
-        Player.find(params[:id]).destroy
-        session.clear
+        @player = Player.find(params[:id]).destroy
+        if @player == current_user
+            session.clear
+        end
         redirect_to root_path
     end
 
