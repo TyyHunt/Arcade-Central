@@ -14,7 +14,11 @@ class ArcadesController < ApplicationController
     end
 
     def new
-        @arcade = Arcade.new
+        if logged_in?
+            @arcade = Arcade.new
+        else
+            redirect_to arcades_path
+        end
     end
 
     def create

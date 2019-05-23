@@ -1,15 +1,17 @@
-<h1>Edit Your Stats </h1>
+<div class="new-edit-form card">
+    <h1>Edit Your Stats </h1>
 
-<%= form_for @player do |f| %>
-    <%= f.label 'Username' %>
-    <%= f.text_field :username %>
-    <br>
-    <%= f.label 'Age' %>
-    <%= f.number_field :age %>
-    <br>
-    <%= f.label 'Allowance' %>
-    <%= f.number_field :allowance, :class => 'text_field', :step => 0.25 %>
-    <br>
-
-    <%= f.submit %>
-<% end %>
+    <%= form_for @player do |f| %>
+        <%= f.label 'Username' %>
+        <%= f.text_field :username %>
+        <br>
+        <%= f.label 'Age' %>
+        <%= f.number_field :age %>
+        <br>
+        <%= f.label 'Allowance' %>
+        <%= f.number_field :allowance, :class => 'text_field', :step => 0.25 %>
+        <br>
+        <br>
+        <%= f.submit %>
+    <% end %>
+</div>

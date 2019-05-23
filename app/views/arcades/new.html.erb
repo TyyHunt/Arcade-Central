@@ -1,38 +1,42 @@
-<h2>Register Your Arcade</h2>
+<div class="new-edit-form card">
 
-<% if @arcade.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@arcade.errors.count, "error") %>
-      prohibited this arcade from being saved:
-    </h2>
- 
-    <ul>
-    <% @arcade.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  <h2>Register Your Arcade</h2>
 
-<%= form_for @arcade do |f| %>
-    <%= f.label 'Name of arcade: ' %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label 'Where is the arcade located? ' %>
-    <%= f.text_field :location %>
-    <br>
-    <%= f.label 'At what time will your arcade open: ' %>
-    <%= f.number_field :open_time %>
-    <br>
-    <%= f.label 'At what time will your arcade close: ' %>
-    <%= f.number_field :close_time %>
-    <br>
-    <%= f.label 'What year was the acrade established? ' %>
-    <%= f.number_field :est_year %>
-    <br>
-    <%= f.hidden_field :owner_name, :value => current_user.username %>
-    <%= f.submit %>
-<% end %>
+  <% if @arcade.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@arcade.errors.count, "error") %>
+        prohibited this arcade from being saved:
+      </h2>
+  
+      <ul>
+      <% @arcade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @arcade do |f| %>
+      <%= f.label 'Name of arcade: ' %>
+      <%= f.text_field :name %>
+      <br>
+      <%= f.label 'Where is the arcade located? ' %>
+      <%= f.text_field :location %>
+      <br>
+      <%= f.label 'At what time will your arcade open: ' %>
+      <%= f.number_field :open_time %>
+      <br>
+      <%= f.label 'At what time will your arcade close: ' %>
+      <%= f.number_field :close_time %>
+      <br>
+      <%= f.label 'What year was the acrade established? ' %>
+      <%= f.number_field :est_year %>
+      <br>
+      <%= f.hidden_field :owner_name, :value => current_user.username %>
+      <br>
+      <%= f.submit %>
+  <% end %>
+</div>
 
 
