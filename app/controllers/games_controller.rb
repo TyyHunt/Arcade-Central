@@ -12,7 +12,6 @@ class GamesController < ApplicationController
         end
     end
 
-    end
 
     def index
         if params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
@@ -25,7 +24,7 @@ class GamesController < ApplicationController
 
     def new
         @arcades = Arcade.all
-        @game = game.new
+        @game = Game.new
     end
 
     def create
