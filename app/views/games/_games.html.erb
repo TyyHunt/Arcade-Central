@@ -1,20 +1,11 @@
-<div class="container">
-    <% @games.each do |game| %>
-        <div class="card text-white bg-secondary mb-3 float-left inline" style="max-width: 18rem; height: 400px; width: 700px; margin: 30px;">
-            <div class="card-header">
-                <h4><%= game.name %><h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Max Players: <%= game.num_players %></p>
-                <p class="card-text">Costs: <%= game.cost %> cents</p>
-                <p class="card-text">In Order: <%= game.working %></p>
-                <p class="card-text">Current Player: <%= game.player.username %></p>
-                <br>
-                <%= link_to 'Check this game out', game_path(game) %>
-                <% if authorized? %>
-                    <%= link_to 'edit game', edit_game_path(game) %>
-                <% end %>
-            </div>
-        </div>
-    <% end %>
+<div class="card-header">
+    <h4><%= game.name %><h4>
+</div>
+<div class="card-body">
+    <p class="card-text">Max Players: <%= game.num_players %></p>
+    <p class="card-text">Costs: <%= game.cost %> cents</p>
+    <p class="card-text">In Order: <%= game.working %></p>
+    <p class="card-text">Current Player: <%= game.player.username %></p>
+    <br>
+    <%= link_to 'Check this game out', game_path(game) %>
 </div>
