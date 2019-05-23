@@ -27,7 +27,11 @@ class GamesController < ApplicationController
     end
 
     def new
-        @game = Game.new
+        if logged_in?
+            @game = Game.new
+        else
+            redirect_to games_path
+        end
     end
 
     def create
