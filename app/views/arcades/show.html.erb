@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <%= render 'arcade' %>
             </div>
-            <% if owner %>
+            <% if authorized? %>
                 <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
                 <%= form_tag arcade_path(@arcade), method: "delete", data: { confirm: "Are you sure?" } do %>
                     <%= submit_tag "Close this Arcade" %>
@@ -18,14 +18,4 @@
 </div>
         
 <br>
-
-<div class="container">
-    <% @games.each do |game| %>
-        <div class="card text-white bg-secondary mb-3 float-left inline" style="max-width: 18rem; height: 400px; width: 700px; margin: 30px;">
-            <%= render 'games/games' %>
-            <% if owner %>
-                <%= link_to 'edit game', edit_game_path(game) %>
-            <% end %>
-        </div>
-    <% end %>
-</div>
+<%= render 'games/game' %>

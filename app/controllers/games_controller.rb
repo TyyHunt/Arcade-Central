@@ -80,7 +80,4 @@ class GamesController < ApplicationController
         params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
     end
 
-    def authorized?
-        logged_in? && @game.arcade.owner_name == current_user.username
-    end
 end

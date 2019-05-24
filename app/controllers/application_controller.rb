@@ -18,5 +18,12 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def authorized?
+        logged_in? && @game.arcade.owner_name == current_user.username
+    end
+
+    def owner
+        @arcade.owner_name == current_user.username
+    end
     
 end
