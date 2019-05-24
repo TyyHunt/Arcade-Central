@@ -18,10 +18,9 @@ class GamesController < ApplicationController
 
     def index
         if arcade_present?
-            @arcade = Arcade.find(params[:arcade_id])
             @games = @arcade.games
         else
-            @games = Game.all
+            redirect_to arcades_path
         end
     end
 
