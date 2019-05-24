@@ -19,8 +19,8 @@ class GamesController < ApplicationController
     def index
         if arcade_present?
             @games = @arcade.games
-        else
-            redirect_to arcades_path
+        else !arcade_present?
+            @games = Game.all
         end
     end
 

@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
     
     def show
         @player = Player.find_by(id: params[:id])
-        if logged_in? && @player != nil
+        if @player != nil
             render :show
         else
             redirect_to root_path

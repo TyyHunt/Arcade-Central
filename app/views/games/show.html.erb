@@ -11,11 +11,19 @@
     </div>
 </div>
 
-<div>
-    <h3><%= @game.name %></h3>
-    <p>Number of players: <%= @game.num_players %></p>
-    <p>Cost per game: <%= @game.cost %></p>
-    <p>Playable: <%= @game.working %></p>
+<div class="container">
+    <div class="card text-white bg-secondary mb-3 inline" style="max-width: 18rem; height: 400px; width: 700px; margin: auto; ">
+        <div class="card-header">
+            <h4><%= @game.name %><h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Max Players: <%= @game.num_players %></p>
+            <p class="card-text">Costs: <%= @game.cost %> cents</p>
+            <p class="card-text">In Order: <%= @game.working %></p>
+            <p class="card-text">Current Player: <%= @game.player.username %></p>
+            <br>
+        </div>
+    </div>
 </div>
 
 <% if authorized? %>
