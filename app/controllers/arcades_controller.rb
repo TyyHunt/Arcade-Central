@@ -6,9 +6,11 @@ class ArcadesController < ApplicationController
 
     def show
         @arcade = Arcade.find_by(id: params[:id])
-        @games = @arcade.games
         no_arcade?
-        arcade_path(@arcade)
+        if @arcade
+            @games = @arcade.games
+            arcade_path(@arcade)
+        end
     end
 
     def new
@@ -28,7 +30,7 @@ class ArcadesController < ApplicationController
     def edit
         @arcade = Arcade.find_by(id: params[:id])
         no_arcade?
-        if owner
+        if authorized?
             render 'edit'
         else
             redirect_to @arcade
@@ -61,13 +63,9 @@ class ArcadesController < ApplicationController
         params.require(:arcade).permit(*args)
     end
 
-    def owner
-        @arcade.owner_name == current_user.username
-    end
-
     def no_arcade?
         if @arcade == nil
-            redirect_to arcades_path
+         redirect_to root_path
         end
     end
 
