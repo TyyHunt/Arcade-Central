@@ -1,9 +1,8 @@
-<h1 class="page-headline">Signin!</h1>
 <div class="new-edit-form card">
-  <h1 class="page-title">Create A New Player</h1>
+  <h1 class="page-title">Log In To The Matrix</h1>
   <%= render 'players/errors' %>
 
-  <%= form_for @player, :html => {class: "form-group"} do |f| %>
+  <%= form_for(@player, url: signin_path) do |f| %>
     <%= f.label 'Username: ' %>
     <%= f.text_field :username %>
     <br>
@@ -11,6 +10,6 @@
     <%= f.text_field :password %>
     <br>
     <br>
-    <%= f.submit %>
+    <%= f.submit "Log In" %>
   <% end %>
 </div>
