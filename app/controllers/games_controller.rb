@@ -3,9 +3,9 @@ class GamesController < ApplicationController
     def show
         if arcade_present?
             @arcade = Arcade.find(params[:arcade_id])
-            @game = @arcade.games.find_by(id: params[:id])
+            @game = @arcade.games[params[:id].to_i]
             if @game != nil
-                arcade_games_path(@game)
+                arcade_game_path(@game)
             else
                 redirect_to arcade_path(@arcade)
             end
@@ -18,6 +18,7 @@ class GamesController < ApplicationController
 
     def index
         if arcade_present?
+            @arcade = Arcade.find(params[:arcade_id])
             @games = @arcade.games
         else !arcade_present?
             @games = Game.all

@@ -5,6 +5,7 @@ class ArcadesController < ApplicationController
     end
 
     def show
+        security
         @arcade = Arcade.find_by(id: params[:id])
         no_arcade?
         if @arcade
