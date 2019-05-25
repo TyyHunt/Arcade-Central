@@ -8,7 +8,7 @@
                 <%= render 'arcade' %>
             </div>
             <br>
-            <% if authorized?  || owner %>
+            <% if owner %>
                 <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
                 <br><br>
                 <%= form_tag arcade_path(@arcade), method: "delete", data: { confirm: "Are you sure?" } do %>

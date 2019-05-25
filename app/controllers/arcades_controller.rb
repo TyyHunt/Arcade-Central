@@ -7,10 +7,7 @@ class ArcadesController < ApplicationController
     def show
         @arcade = Arcade.find_by(id: params[:id])
         no_arcade?
-        if @arcade
-            @games = @arcade.games
-            arcade_path(@arcade)
-        end
+        @games = @arcade.games
     end
 
     def new
@@ -28,8 +25,8 @@ class ArcadesController < ApplicationController
     end
 
     def edit
-        security
         @arcade = Arcade.find_by(id: params[:id])
+        not_owner?
     end
 
     def update

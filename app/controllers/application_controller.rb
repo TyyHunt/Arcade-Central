@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def not_authorized?
-        if !logged_in? || !authorized?
+    def not_owner?
+        if !logged_in? || !owner
             redirect_to root_path  
         end
     end  
