@@ -41,6 +41,7 @@ class GamesController < ApplicationController
     end
 
     def edit
+        security
         @game = Game.find_by(id: params[:id])
         if authorized?
             render 'edit'
@@ -61,6 +62,7 @@ class GamesController < ApplicationController
     end
 
     def destroy
+        security
         @game = Game.find(params[:id])
         if authorized?
             @game.destroy

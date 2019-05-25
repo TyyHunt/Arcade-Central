@@ -23,7 +23,11 @@ class ApplicationController < ActionController::Base
     end
 
     def owner
-        @arcade.owner_name == current_user.username
+        if logged_in?
+            @arcade.owner_name == current_user.username
+        else
+            security
+        end
     end
     
 end

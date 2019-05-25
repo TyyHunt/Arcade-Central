@@ -10,6 +10,7 @@ class PlayersController < ApplicationController
     end
     
     def new
+        security
         @player = Player.new
     end
 
@@ -25,6 +26,7 @@ class PlayersController < ApplicationController
     end
 
     def edit
+        security
         @player = Player.find_by(id: params[:id])
         if @player == current_user
             render 'edit'

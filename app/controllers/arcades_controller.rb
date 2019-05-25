@@ -5,7 +5,6 @@ class ArcadesController < ApplicationController
     end
 
     def show
-        security
         @arcade = Arcade.find_by(id: params[:id])
         no_arcade?
         if @arcade
@@ -29,13 +28,8 @@ class ArcadesController < ApplicationController
     end
 
     def edit
+        security
         @arcade = Arcade.find_by(id: params[:id])
-        no_arcade?
-        if authorized?
-            render 'edit'
-        else
-            redirect_to @arcade
-        end
     end
 
     def update
