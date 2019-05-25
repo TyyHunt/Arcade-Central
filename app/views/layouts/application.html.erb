@@ -22,13 +22,15 @@
       </div>
     </div>
 
-    <!-- content -->
+
     <div class="container"  role="main">
-      <div class="center">
-        <% flash.each do |key, value| %>
-          <div><%= value %></div>
-        <% end %>
-      </div>
+      <% if flash[:notice] %>
+        <div class="flash-notice">
+          <% flash.each do |key, value| %>
+            <div><%= value %></div>
+          <% end %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

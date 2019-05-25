@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     def new
         if current_user
-            redirect_to '/'
+            redirect_to player_path(current_user)
         else
             @player = Player.new
         end
@@ -9,12 +9,13 @@ class SessionsController < ApplicationController
     
       
     def create
-        @player = Player.find_by(username: params[:username])
+        @player = Player.find_by(username: params[:player][:username])
         if @player && @player.authenticate(params[:player][:password])
             session[:player_id] = @player.id
             redirect_to player_path(@player)
         else
-            redirect_to signup_path
+            flash[:notice] = "Username or Password is Invalid"
+            redirect_to signin_path
         end
     end
 

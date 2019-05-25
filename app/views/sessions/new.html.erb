@@ -1,5 +1,5 @@
 <div class="new-edit-form card">
-  <h1 class="page-title">Log In To The Matrix</h1>
+  <h1 class="page-title">Login To The Matrix</h1>
   <%= render 'players/errors' %>
 
   <%= form_for(@player, url: signin_path) do |f| %>
@@ -10,6 +10,6 @@
     <%= f.text_field :password %>
     <br>
     <br>
-    <%= f.submit "Log In" %>
+    <%= f.submit "Login" %>
   <% end %>
 </div>
