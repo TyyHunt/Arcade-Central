@@ -28,11 +28,6 @@ class PlayersController < ApplicationController
     def edit
         security
         @player = Player.find_by(id: params[:id])
-        if @player == current_user
-            render 'edit'
-        else
-            redirect_to @player
-        end
     end
 
     def update

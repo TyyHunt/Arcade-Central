@@ -9,9 +9,13 @@ class GamesController < ApplicationController
             else
                 redirect_to arcade_path(@arcade)
             end
-        else
-            @game = Game.find(params[:id])
-            @arcade = @game.arcade
+            raise params.inspect
+        else @game = Game.find_by(id: params[:id]) 
+            if @game != nil
+             @arcade = @game.arcade
+            else
+                redirect_to root_path
+            end
         end
     end
 
@@ -43,12 +47,8 @@ class GamesController < ApplicationController
     def edit
         security
         @game = Game.find_by(id: params[:id])
-        if authorized?
-            render 'edit'
-        elsif @game == nil
+        if  @game == nil
             redirect_to root_path
-        else
-            redirect_to @game
         end
     end
 
