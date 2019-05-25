@@ -17,6 +17,7 @@ class ArcadesController < ApplicationController
 
     def create
         @arcade = Arcade.new(arcade_params(:name, :location, :open_time, :close_time, :est_year, :owner_name))
+        raise @arcade.errors.inspect
         if @arcade.save
             redirect_to arcade_path(@arcade)
         else
