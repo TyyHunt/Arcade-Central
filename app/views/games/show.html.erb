@@ -22,13 +22,13 @@
             <p class="card-text">In Order: <%= @game.working %></p>
             <p class="card-text">Current Player: <%= @game.player.username %></p>
             <br>
+            <% if authorized? %>
+                <%= link_to "Edit your game", edit_game_path(@game) %>
+                <br><br>
+                <%= form_tag game_path(@game.id), method: "delete", data: { confirm: "Pull the plug?" } do %>
+                    <%= submit_tag "Shut down this game" %>
+                <% end %>
+            <% end %>
         </div>
     </div>
 </div>
-
-<% if authorized? %>
-    <%= link_to "Edit your game", edit_player_path(@game) %>
-    <%= form_tag player_path(@game.id), method: "delete", data: { confirm: "Pull the plug?" } do %>
-        <%= submit_tag "Shut down this game" %>
-    <% end %>
-<% end %>

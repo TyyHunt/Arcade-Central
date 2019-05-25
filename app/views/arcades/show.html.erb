@@ -7,8 +7,10 @@
             <div class="col-md-8">
                 <%= render 'arcade' %>
             </div>
-            <% if authorized? %>
+            <br>
+            <% if owner %>
                 <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
+                <br><br>
                 <%= form_tag arcade_path(@arcade), method: "delete", data: { confirm: "Are you sure?" } do %>
                     <%= submit_tag "Close this Arcade" %>
                 <% end %>
