@@ -91,8 +91,13 @@ div.card.text-white.bg-secondary.mb-3.float-left.inline, .card.mb-3 {
     opacity: 0.95;
 }
 
-.field_with_errors {
+.field_with_errors input {
     border: 2px solid red;
+    
+}
+
+.field_with_errors {
+    display:inline-block;
 }
 
 .col-6 {
