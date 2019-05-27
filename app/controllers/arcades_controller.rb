@@ -61,4 +61,8 @@ class ArcadesController < ApplicationController
         end
     end
 
+    def hours_of_operation
+        "#{arcade.open_time} - #{arcade.close_time}"
+    end
+
 end

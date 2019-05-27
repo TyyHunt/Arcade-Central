@@ -10,7 +10,7 @@
                     <hr>
                     <p class="card-text">Located in: <%= arcade.location %></p>
                     <p class="card-text">Owned by: <%= arcade.owner_name %></p>
-                    <p class="card-text">Open from: <%= arcade.open_time - arcade.close_time %></p>
+                    <p class="card-text">Open from: <%= "#{arcade.open_time}am - #{arcade.close_time}pm" %></p>
                     <p class="card-text">Open since: <%= arcade.est_year %>
                     <br>
                     <br>
