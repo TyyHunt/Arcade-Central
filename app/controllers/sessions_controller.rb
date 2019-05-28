@@ -9,25 +9,27 @@ class SessionsController < ApplicationController
     
       
     def create
-        @player = Player.find_by(username: params[:player][:username])
-        if @player && @player.authenticate(params[:player][:password])
-            session[:player_id] = @player.id
+        if auth        
+            auth_params = auth['info']['nickname']
+            if @player = Player.find_by(username: auth_params) 
+                session[:player_id] = @player.id
+            else
+                @player = Player.create(username: auth_params, password: auth['credentials']['token'])
+
+                session[:player_id] = @player.id
+            end
             redirect_to player_path(@player)
-        else
-            flash[:notice] = "Username or Password is Invalid"
-            redirect_to signin_path
+        else @player = Player.find_by(username: params[:player][:username])
+            if @player && @player.authenticate(params[:player][:password])
+                session[:player_id] = @player.id
+                redirect_to player_path(@player)
+            else
+                flash[:notice] = "Username or Password is Invalid"
+                redirect_to signin_path
+            end
         end
     end
 
-    def github
-            @player = Player.find_or_create_by(uid: auth['username']) do |u|
-              u.name = auth['info']['name']
-            end
-         
-            session[:player_id] = @player.id
-         
-            render 'player_path(@player)'
-      end
 
     def destroy
         session.clear

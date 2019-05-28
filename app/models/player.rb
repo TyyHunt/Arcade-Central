@@ -6,7 +6,7 @@ class Player < ApplicationRecord
 
     validates :username, presence: true
     validates :username, uniqueness: true
-    validates :password, length: { in: 6..20 }
+    validates :password, length: { minimum: 6}
 
     def self.from_omniauth(auth)
         where(uid: auth.uid).first_or_initialize.tap do |user|
