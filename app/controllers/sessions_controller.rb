@@ -19,6 +19,18 @@ class SessionsController < ApplicationController
         end
     end
 
+    def github
+        @player = Player.find_or_create_by(uid: auth['uid']) do |u|
+          u.uid = auth['uid']
+          u.password = 'Temporary'
+          u.email = auth['info']['email']
+        end
+    
+        session[:player_id] = @player.id
+    
+        redirect_to root_path
+      end
+
     def destroy
         session.clear
         redirect_to root_path
