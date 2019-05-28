@@ -11,7 +11,7 @@ resources :arcades do
   root 'static#home'
   get '/signup' => 'players#new'
   get '/signin' => 'sessions#new'
-  get '/auth/github/callback', to: 'sessions#github'
+  match  '/auth/github/callback', to: 'sessions#github', via: [:get, :post] 
   post '/signin' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
