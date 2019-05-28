@@ -20,15 +20,13 @@ class SessionsController < ApplicationController
     end
 
     def github
-        @player = Player.find_or_create_by(uid: auth['uid']) do |u|
-          u.uid = auth['uid']
-          u.password = 'Temporary'
-          u.email = auth['info']['email']
-        end
-    
-        session[:player_id] = @player.id
-    
-        redirect_to root_path
+            @player = Player.find_or_create_by(uid: auth['username']) do |u|
+              u.name = auth['info']['name']
+            end
+         
+            session[:player_id] = @player.id
+         
+            render 'player_path(@player)'
       end
 
     def destroy

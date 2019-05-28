@@ -34,8 +34,8 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'omniauth'
-gem "omniauth-github"
-gem "dotenv-rails"
+gem 'omniauth-github'
+gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
