@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     
       
     def create
-        if auth        
+        if auth 
+            raise params.inspect       
             auth_params = auth['info']['nickname']
             if @player = Player.find_by(username: auth_params) 
                 session[:player_id] = @player.id
