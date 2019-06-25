@@ -1,0 +1,23 @@
+<%= form_for @game, :html => {class: "form-group"} do |f| %>
+    <%= f.label 'Name of the game: ' %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label 'Maximum number of players: ' %>
+    <%= f.number_field :num_players %>
+    <br>
+    <%= f.label 'How much will this game cost? ' %>
+    <%= f.number_field :cost, :class => 'text_field', :step => 0.25 %>
+    <br>
+    <%= f.label 'This game will belong to which arcade?' %>
+    <%= f.collection_select :arcade_id, Arcade.all, :id, :name %>
+    <br>
+    <%= f.label 'Is this game in working order?' %>
+    <%= f.label 'No' %>
+    <%= f.radio_button :working, false %>
+    <%= f.label 'Yes' %>
+    <%= f.radio_button :working, true %>
+    <br>
+    <%= f.hidden_field :player_id, :value => current_user.id %>
+    <br>
+    <%= f.submit %>
+  <% end %>

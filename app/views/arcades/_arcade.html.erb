@@ -1,0 +1,11 @@
+           
+<h2 class="card-title"><%= @arcade.name %></h2>
+<hr>
+<p class="card-text">Located in: <%= @arcade.location %></p>
+<p class="card-text">Owned by: <%= @arcade.owner_name %></p>
+<p class="card-text">Open from: <%= @arcade.open_time - @arcade.close_time %></p>
+<p class="card-text">Open since: <%= @arcade.est_year %>
+<br>
+<br>
+<%= link_to 'Go to Arcade', arcade_path(@arcade) %>
+

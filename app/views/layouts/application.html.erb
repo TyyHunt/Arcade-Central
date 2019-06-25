@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arcade Central</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header float-right">
+          <div class"float-right">
+            <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+            <a class="navbar-brand" href="<%= arcades_path %>"/>Arcades</a>
+            <a class="navbar-brand" href="<%= games_path %>"/>Games</a>
+            <tab>
+            <a class="navbar-brand" style="padding-left: 720px;" href="<%= logout_path %>"> Log Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container"  role="main">
+      <% if flash[:notice] %>
+        <div class="flash-notice">
+          <% flash.each do |key, value| %>
+            <div><%= value %></div>
+          <% end %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

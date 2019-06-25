@@ -1,0 +1,23 @@
+
+<div class="card mb-3" style="max-width: 900px;">
+<div class="row no-gutters">
+    <div class="col-md-4">
+        <img src="https://images.pexels.com/photos/1293269/pexels-photo-1293269.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img" alt="...">
+    </div>
+    <div class="card-body">
+        <div class="col-md-8">
+            <h3><%= @player.username %></h3>
+            <hr>
+            <p>Age: <%= @player.age %></p>
+            <p>Allowance: $<%= @player.allowance %></p>
+
+            <% if current_user == @player %>
+                <%= link_to "Adjust Your Stats", edit_player_path(@player) %>
+                <br><br>
+                <%= form_tag player_path(@player.id), method: "delete", data: { confirm: "Swallow The Pill?" } do %>
+                    <%= submit_tag "Take The Blue Pill" %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

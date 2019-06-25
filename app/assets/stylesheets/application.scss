@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+ @import "bootstrap";
+
+div.navbar.navbar-inverse.navbar-fixed-top {
+     color: #fff;
+     background: #050027;
+ }
+
+body {
+    color: #fff;
+}
+
+a {
+    font-size: 1.3rem;
+}
+
+div.home-page {
+    text-align: center;
+}
+
+body {
+    background: url(https://images.pexels.com/photos/1293260/pexels-photo-1293260.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1.headline {
+    font-size: 5.5rem;
+    margin-top: 400px;
+}
+
+h1.page-title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.new-edit-form.card {
+    background-color: #050027;
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid #050027;
+    box-shadow: 0 0 5px 5xp #050027;
+    border-radius: 10px;
+    width: 800px;
+    margin:  150px auto;
+}
+
+.custom-form-fields {
+    width: 600px;
+    margin: auto;
+}
+
+input {
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.card.mb-3 {
+    background: #050027;
+    margin: 10px auto;
+    border: 1px solid #fff;
+}
+
+hr {
+    width: 400px;
+    background-color: #fff;
+}
+
+.page-headers {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 5.5rem;
+}
+
+div.card.text-white.bg-secondary.mb-3.float-left.inline, .card.mb-3 {
+    opacity: 0.95;
+}
+
+.field_with_errors input {
+    border: 2px solid red;
+    
+}
+
+.field_with_errors {
+    display:inline-block;
+}
+
+.col-6 {
+    text-align: center;
+    
+}
+.col-6 a {
+    color: 	#C93C45;
+    font-size: 3.0rem;
+}
+
+.flash-notice {
+    text-align: center;
+    font-size: 3.0rem;
+    margin-top: 100px;
+    color: #F57642;
+}
+
+div .new-path {
+    text-align: center;
+    margin: auto;
+}
