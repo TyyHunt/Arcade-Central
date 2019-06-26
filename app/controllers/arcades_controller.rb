@@ -45,7 +45,7 @@ class ArcadesController < ApplicationController
             @arcade.destroy
             redirect_to root_path
         else
-            redirect_to @arcade
+            redirect_to arcades_path
         end
     end
 
