@@ -14,7 +14,7 @@
             <% if current_user == @player %>
                 <%= link_to "Adjust Your Stats", edit_player_path(@player) %>
                 <br><br>
-                <%= form_tag player_path(@player.id), method: "delete", data: { confirm: "Swallow The Pill?" } do %>
+                <%= form_tag player_path(@player.id), method: "delete", data: { confirm: "Are you sure?" } do %>
                     <%= submit_tag "Take The Blue Pill" %>
                 <% end %>
             <% end %>

@@ -39,13 +39,13 @@ class ArcadesController < ApplicationController
     end
 
     def destroy
-        @arcade = Arcade.find_by(params[:id])
-        no_arcade?
+        security
+        @arcade = Arcade.find(params[:id])
         if owner
             @arcade.destroy
-            redirect_to root_path
-        else
             redirect_to arcades_path
+        else
+            redirect_to arcade_path(@arcade)
         end
     end
 
