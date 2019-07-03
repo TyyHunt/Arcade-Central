@@ -7,8 +7,8 @@
             <div class="col-md-8">
                 <%= render 'arcade' %>
             </div>
-            <br>
             <%= link_to "Add A Game To Your Arcade", new_arcade_game_path(@arcade) %>
+            <br>
             <% if owner %>
                 <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
                 <br><br>

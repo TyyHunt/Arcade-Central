@@ -4,7 +4,7 @@ class Arcade < ApplicationRecord
     validates_inclusion_of :open_time, :close_time, :in => 1..12
     validates :est_year, :numericality => { greater_than_or_equal_to: 1970, less_than_or_equal_to: Time.now.year }
 
-    has_many :games
+    has_many :games, :dependent => :delete_all
     has_many :players, through: :games
 
     def self.abc_order
