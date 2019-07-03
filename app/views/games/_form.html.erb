@@ -9,7 +9,7 @@
     <%= f.number_field :cost, :class => 'text_field', :step => 0.25 %>
     <br>
     <%= f.label 'This game will belong to which arcade?' %>
-    <%= f.collection_select :arcade_id, Arcade.all, :id, :name, value: '@arcade.name' %>
+    <%= f.collection_select :arcade_id, Arcade.all, :id, :name, {:selected => @arcade.id} %>
     <br>
     <%= f.label 'Is this game in working order?' %>
     <%= f.label 'No' %>

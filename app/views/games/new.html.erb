@@ -1,7 +1,29 @@
+<% if @arcade %>
+  <div class="card mb-3" style="max-width: 900px;">
+      <div class="row no-gutters">
+          <div class="col-md-4">
+              <img src="https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img" alt="...">
+          </div>
+          <div class="card-body">
+              <div class="col-md-8">
+                <%= render 'arcades/arcade' %>
+              </div>
+              <br>
+              <%= link_to "Add A Game To Your Arcade", new_arcade_game_path(@arcade) %>
+              <% if owner %>
+                  <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
+                  <br><br>
+                  <%= form_tag arcade_path(@arcade), method: "delete", data: { confirm: "Are you sure?" } do %>
+                      <%= submit_tag "Close this Arcade" %>
+                  <% end %>
+              <% end %>
+          </div>
+      </div>
+  </div>
+<% end %>
 <div class="new-edit-form card">
   <h1 class="page-title">Add A New Game</h1>
-
-<%= render 'errors' %>
+  <%= render 'errors' %>
 <br>
 <%= render 'form' %>
 </div>

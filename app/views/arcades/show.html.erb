@@ -8,7 +8,7 @@
                 <%= render 'arcade' %>
             </div>
             <br>
-            <%= link_to "Add A Game To Your Arcade", new_game_path %>
+            <%= link_to "Add A Game To Your Arcade", new_arcade_game_path(@arcade) %>
             <% if owner %>
                 <%= link_to "Edit Your Arcade", edit_arcade_path(@arcade) %>
                 <br><br>
