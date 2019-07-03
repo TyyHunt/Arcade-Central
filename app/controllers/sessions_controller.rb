@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
                 session[:player_id] = @player.id
             else
                 @player = Player.create(username: auth_params, password: auth['credentials']['token'])
-
                 session[:player_id] = @player.id
             end
             redirect_to player_path(@player)

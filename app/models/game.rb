@@ -6,5 +6,8 @@ class Game < ApplicationRecord
     validates :name, uniqueness: true
     validates_inclusion_of :num_players, :in => 1..6
     
+    def self.abc_order
+        order(:name)
+    end
 
 end

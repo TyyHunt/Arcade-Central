@@ -9,7 +9,6 @@ class GamesController < ApplicationController
             else
                 redirect_to arcade_path(@arcade)
             end
-            raise params.inspect
         else @game = Game.find_by(id: params[:id]) 
             if @game != nil
              @arcade = @game.arcade
@@ -23,21 +22,29 @@ class GamesController < ApplicationController
     def index
         if arcade_present?
             @arcade = Arcade.find(params[:arcade_id])
-            @games = @arcade.games
-        else !arcade_present?
-            @games = Game.all
+            @games = @arcade.games.abc_order
+        else 
+            @games = Game.abc_order
         end
+    end
+
+    def embedded_new
+        security
+        @game = Game.new
     end
 
     def new
         security
+        if arcade_present?
+            @arcade = Arcade.find(params[:arcade_id])
+        end
         @game = Game.new
     end
 
     def create
         @game = Game.new(game_params)
-        @game.valid?
-        if @game.save
+        if @game.valid?
+            @game.save
             redirect_to game_path(@game)
         else
             render 'new'

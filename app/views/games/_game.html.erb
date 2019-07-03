@@ -1,5 +1,5 @@
 <div class="container">
-    <% @games.order(:name).each do |game| %>
+    <% @games.each do |game| %>
         <div class="card text-white bg-secondary mb-3 float-left inline" style="max-width: 18rem; height: 400px; width: 700px; margin: 30px;">
             <div class="card-header">
                 <h4><%= game.name %><h4>

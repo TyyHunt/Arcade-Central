@@ -7,5 +7,8 @@ class Arcade < ApplicationRecord
     has_many :games
     has_many :players, through: :games
 
+    def self.abc_order
+        order(:name)
+    end
 
 end

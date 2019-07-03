@@ -1,7 +1,7 @@
 class ArcadesController < ApplicationController
 
     def index
-        @arcades = Arcade.all
+        @arcades = Arcade.abc_order
     end
 
     def show

@@ -10,12 +10,11 @@ class PlayersController < ApplicationController
     end
     
     def new
-        security
         @player = Player.new
     end
 
     def create
-        @player = Player.new(player_params)
+        @player = Player.new(player_params(:username, :age, :allowance, :password))
        
         if @player.save
             session[:player_id] = @player.id
@@ -32,10 +31,10 @@ class PlayersController < ApplicationController
 
     def update
         @player = Player.find(params[:id])
-        if @player.update(player_params)
+        if @player.update(player_params(:username, :age, :allowance))
             redirect_to @player
         else
-            redirect to player_edit_path(@player)
+            redirect_to edit_player_path(@player)
         end
     end
 
@@ -49,8 +48,8 @@ class PlayersController < ApplicationController
 
     private
 
-    def player_params
-        params.require(:player).permit(:username, :age, :allowance, :password)
+    def player_params(*args)
+        params.require(:player).permit(*args)
     end
 
 end

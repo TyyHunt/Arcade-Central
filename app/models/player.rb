@@ -15,5 +15,5 @@ class Player < ApplicationRecord
           user.oauth_token = auth.credentials.token
           user.save!
         end
-      end
+    end
 end
