@@ -13,7 +13,10 @@
     <%= f.number_field :allowance, :class => 'text_field', :step => 0.25 %>
     <br>
     <%= f.label 'Create a password: ' %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label 'Confirm password: ' %>
+    <%= f.password_field :password_confirmation %>
     <br>
     <br>
     <%= f.submit %>
