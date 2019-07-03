@@ -35,9 +35,7 @@ class GamesController < ApplicationController
 
     def new
         security
-        if arcade_present?
-            @arcade = Arcade.find(params[:arcade_id])
-        end
+        @arcade = Arcade.find_by(id: params[:arcade_id])
         @game = Game.new
     end
 
@@ -87,6 +85,14 @@ class GamesController < ApplicationController
 
     def arcade_present?
         params[:arcade_id] && Arcade.find_by(id: params[:arcade_id]) != nil
+    end
+
+    def show_arcade
+        if @arcade == nil
+            @arcade = 1
+        else
+            @arcade.id
+        end
     end
 
 end
