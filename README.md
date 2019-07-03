@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+This app is made to put arcades back on the map.  Enjoy as a player or create an arcade for people to visit.  You can easily track what games are at specific arcades as well as see if they are even in order.
 
-* Ruby version
+## Installation
 
-* System dependencies
+This app requires Ruby 2.3.1 and Rails 5.1.4.
 
-* Configuration
+Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 
-* Database creation
+* ```fork https://github.com/TyyHunt/Arcade_Central & clone locally```
+* ```cd Arcade_Central from your local directory```
+* ```bundle install```
+* ```rake db:migrate```
+* ```rake db:seed```
+* ```rails s```
+* ```open browser to localhost:3000```
 
-* Database initialization
+##  Further Development
+Other features for this app to be developed in the future will include:
+  1. jQuery front end
+  2. A visible line for who is waiting to play a game next and who is currently playing
+  3. Interactive allowance that depletes after playing a game
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This Web Application is available as open source under the terms of the MIT License.
