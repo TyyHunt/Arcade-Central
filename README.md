@@ -10,8 +10,8 @@ This app requires Ruby 2.3.1 and Rails 5.1.4.
 
 Once you have Ruby 2.3.1 and Rails 5.1.4 installed,
 
-* ```fork https://github.com/TyyHunt/Arcade_Central & clone locally```
-* ```cd Arcade_Central from your local directory```
+* ```fork https://github.com/TyyHunt/Arcade-Central & clone locally```
+* ```cd Arcade-Central from your local directory```
 * ```bundle install```
 * ```rake db:migrate```
 * ```rake db:seed```
