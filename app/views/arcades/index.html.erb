@@ -2,11 +2,11 @@
 <div class="container">
     <% @arcades.each do |arcade| %>
         <div class="card text-white bg-secondary mb-3 float-left inline" style="max-width: 21rem; width: 1000px; margin: 5px;">
-                <a href="#" class="arcade-names"><h4><%= arcade.name %><h4></a>
+                <button class="btn btn-primary" id="arcade-names" type="submit"><%= arcade.name %></button>
         </div>
     <% end %>
 </div>
 <br>
-<div class="arcade-show">
+<div id="arcade-show">
 </div>
 
