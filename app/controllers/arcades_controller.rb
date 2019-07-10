@@ -2,6 +2,10 @@ class ArcadesController < ApplicationController
 
     def index
         @arcades = Arcade.abc_order
+        respond_to do |f|
+            f.html{render :index}
+            f.json {render json: @arcades}
+        end
     end
 
     def most
@@ -13,6 +17,10 @@ class ArcadesController < ApplicationController
         @arcade = Arcade.find_by(id: params[:id])
         no_arcade?
         @games = @arcade.games
+        respond_to do |f|
+            f.html{render :index}
+            f.json {render json: @arcade}
+        end
     end
 
     def new
@@ -24,6 +32,10 @@ class ArcadesController < ApplicationController
         @arcade = Arcade.new(arcade_params(:name, :location, :open_time, :close_time, :est_year, :owner_name))
         if @arcade.save
             redirect_to arcade_path(@arcade)
+            respond_to do |f|
+                f.html{render :index}
+                f.json {render json: @arcade}
+            end
         else
             render 'new'
         end
@@ -32,6 +44,10 @@ class ArcadesController < ApplicationController
     def edit
         @arcade = Arcade.find_by(id: params[:id])
         not_owner?
+        respond_to do |f|
+            f.html{render :index}
+            f.json {render json: @arcade}
+        end
     end
 
     def update
