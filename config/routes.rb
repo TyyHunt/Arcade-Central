@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'arcades/most' => 'arcades#most'
+
 resources :arcades do
     resources :games
   end

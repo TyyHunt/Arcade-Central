@@ -11,4 +11,7 @@ class Arcade < ApplicationRecord
         order(:name)
     end
 
+    def self.highest_num_games
+        joins(:games).group('arcades.id').order('count(games.arcade_id) DESC').first
+    end
 end
