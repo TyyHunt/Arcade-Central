@@ -8,11 +8,6 @@ class ArcadesController < ApplicationController
         end
     end
 
-    def most
-        @arcade = Arcade.highest_num_games
-        @games = @arcade.games
-    end
-
     def show
         @arcade = Arcade.find_by(id: params[:id])
         no_arcade?
