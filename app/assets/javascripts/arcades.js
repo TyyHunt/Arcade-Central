@@ -1,34 +1,34 @@
 $(function() {
     console.log( "arcades ready!" )
-    arcadeIndexClick()
+    clickSpecific()
 });
 
-function arcadeIndexClick() {
-    console.log( "entered arcade index click" )
-    document.addEventListener('click', function (event) {
-        if ( event.target.classList.contains( 'arcade-id' ) ) {
-            event.preventDefault()
-            getArcade()
+function clickSpecific() {
+    document.body.addEventListener("click", event => {
+        if (event.target.nodeName == "BUTTON") {
+            let arcadeName = $(event.target)
+            $.get('/arcades.json' , function (data) { 
+                console.log("the data is", arcadeName[0])
+                arcadeHtml = HandlebarsTemplates['show_arcade']({ 
+                    arcade: arcadeName[0]  
+                });
+                $('#arcade-show').html(arcadeHtml); 
+            });
         }
-    }, false);
+        
+      });
 }
-
-
-
-
-
 
 function getArcade() {
     console.log( "entered get arcade" )
     $.get('/arcades.json' , function (data) { 
         console.log("the data is", data)
         arcadeHtml = HandlebarsTemplates['show_arcade']({ 
-            arcade: data[0] 
+            arcade: data  
         });
         $('#arcade-show').html(arcadeHtml); 
     });
 }  
-
 
 class Arcade {
     constructor(obj) {
