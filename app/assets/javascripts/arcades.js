@@ -6,11 +6,12 @@ $(function() {
 function clickSpecific() {
     document.body.addEventListener("click", event => {
         if (event.target.nodeName == "BUTTON") {
-            let arcadeName = $(event.target)
+            let arcadeName = $(event.target)[0].innerText
+            let arcadeData = 
             $.get('/arcades.json' , function (data) { 
-                console.log("the data is", arcadeName[0])
+                console.log("the data is", arcadeName)
                 arcadeHtml = HandlebarsTemplates['show_arcade']({ 
-                    arcade: arcadeName[0]  
+                    name: arcadeName.innerText  
                 });
                 $('#arcade-show').html(arcadeHtml); 
             });
@@ -19,12 +20,16 @@ function clickSpecific() {
       });
 }
 
+Arcade.prototype.singleArray = function (array, input) {
+    array.map
+}
+
 function getArcade() {
     console.log( "entered get arcade" )
     $.get('/arcades.json' , function (data) { 
         console.log("the data is", data)
         arcadeHtml = HandlebarsTemplates['show_arcade']({ 
-            arcade: data  
+            name: data  
         });
         $('#arcade-show').html(arcadeHtml); 
     });
