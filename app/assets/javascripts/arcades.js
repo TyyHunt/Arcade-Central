@@ -5,33 +5,40 @@ $(function() {
 
 function arcadeIndexClick() {
     console.log( "entered arcade index click" )
-    $('button#arcade-names').on('click', function (event) {
-        event.preventDefault()
-        getArcade()
-    })
+    document.addEventListener('click', function (event) {
+        if ( event.target.classList.contains( 'arcade-id' ) ) {
+            event.preventDefault()
+            getArcade()
+        }
+    }, false);
 }
+
+
+
+
+
 
 function getArcade() {
     console.log( "entered get arcade" )
-    $.ajax({
-        url: 'http://localhost:3000/arcades',
-        method: 'get',
-        dataType: 'json'
-    }).done( function (data) {
+    $.get('/arcades.json' , function (data) { 
         console.log("the data is", data)
+        arcadeHtml = HandlebarsTemplates['show_arcade']({ 
+            arcade: data[0] 
+        });
+        $('#arcade-show').html(arcadeHtml); 
+    });
+}  
 
-    })
-    document.getElementById('arcade-show').innerHTML = "Hello"
-}
 
 class Arcade {
     constructor(obj) {
         this.id = obj.id
         this.name = obj.name
         this.location = obj.location
-        this.openTime = obj.open_time
-        this.closeTime = obj.close_time
-        this.estYear = obj.est_year
+        this.owner_name = obj.owner_name
+        this.open_time = obj.open_time
+        this.close_time = obj.close_time
+        this.est_year = obj.est_year
         this.games = obj.games
     }
 }

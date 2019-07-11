@@ -1,3 +1,24 @@
-<script id="show-arcade-template" type="text/x-handlebars-template">
+{{#arcade}}
+<div class="card mb-3" style="max-width: 900px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" class="card-img" alt="...">
+            </div>
+            <div class="card-body">
+                <div class="col-md-8">
+                               
+                    <h2 class="card-title">{{name}}</h2>
+                    <hr>
+                    <p class="card-text">Located at: {{location}}</p>
+                    <p class="card-text">Owned by: {{owner_name}}</p>
+                    <p class="card-text">Open from: {{open_time}}am - {{close_time}}pm</p>
+                    <p class="card-text">Open since: {{est_year}}</p>
+                    <br>
+                    <br>
+                    <a href="/arcades/{{id}}">Go to Arcade</a>
 
-</script>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/arcade}}

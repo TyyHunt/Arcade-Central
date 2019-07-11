@@ -2,7 +2,7 @@
 <div class="container">
     <% @arcades.each do |arcade| %>
         <div class="card text-white bg-secondary mb-4 float-left inline" style="max-width: 21rem; width: 1000px; margin: 5px;">
-                <button class="btn btn-primary" id="arcade-names" type="submit"><%= arcade.name %></button>
+                <button class="btn btn-primary arcade-id-<%= arcade.id %>" id="arcade-name-<%= arcade.id %>" type="submit"><%= arcade.name %></button>
         </div>
     <% end %>
 </div>
