@@ -11,7 +11,7 @@ function clickSpecific() {
             $.get('/arcades.json' , function (data) { 
                 console.log("the data is", arcadeName)
                 arcadeHtml = HandlebarsTemplates['show_arcade']({ 
-                    name: arcadeName.innerText  
+                    name: arcadeName  
                 });
                 $('#arcade-show').html(arcadeHtml); 
             });
