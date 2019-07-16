@@ -6,6 +6,7 @@ $(function() {
 function clickSpecific() {
     document.body.addEventListener("click", event => {
         if (event.target.nodeName == "BUTTON") {
+            console.log("button pressed")
             let arcadeName = $(event.target)[0].innerText.toString();
             $.get('/arcades.json' , function (data) { 
                 let result = data.filter(obj => {
@@ -24,9 +25,19 @@ function clickSpecific() {
                     id: jsArcade.id  
                 });
                 $('#arcade-show').html(arcadeHtml); 
+                gamesClicked(jsArcade)
             });
         } 
       });
+}
+
+function gamesClicked(arcadeObj) {
+    document.getElementById("arcade-games").addEventListener("click", function(event) {
+        console.log("games button clicked")
+        event.preventDefault()
+        jsGames = new Game(arcadeObj.games)
+        arcadeObj.showGames(jsGames)
+    },false);
 }
 
 class Arcade {
@@ -41,3 +52,22 @@ class Arcade {
         this.games = obj.games
     }
 }
+
+class Game {
+    constructor(obj) {
+        this.id = obj.id
+        this.name = obj.name
+        this.numPlayers = obj.num_players
+        this.cost = obj.cost
+        this.working = obj.working
+    }
+}
+
+Arcade.prototype.showGames = function(gamesObj) {
+    gamesHtml = HandlebarsTemplates['show_games']({
+          games: gamesObj
+    });
+    $('#games-show').html(gamesHtml);
+}
+
+
