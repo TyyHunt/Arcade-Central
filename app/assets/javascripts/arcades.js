@@ -35,12 +35,13 @@ function gamesClicked(arcadeObj) {
     document.getElementById("arcade-games").addEventListener("click", function(event) {
         console.log("games button clicked", `/arcades/${arcadeObj.id}/games`)
         event.preventDefault()
-        $.get(`/arcades/${arcadeObj.id}/games`), function (data) {
+        $.get(`/arcades/${arcadeObj.id}/games.json`, function (data) {
+            console.log("retrieved games data")
             gamesHtml = HandlebarsTemplates['show_games']({
                 games: data
           });
           $('#games-show').html(gamesHtml);
-        }
+        });
     },false);
 }
 
