@@ -55,25 +55,8 @@ class Arcade {
         this.openTime = obj.open_time
         this.closeTime = obj.close_time
         this.estYear = obj.est_year
-        this.games = obj.games
     }
 }
 
-class Game {
-    constructor(obj) {
-        this.id = obj.id
-        this.name = obj.name
-        this.numPlayers = obj.num_players
-        this.cost = obj.cost
-        this.working = obj.working
-    }
-}
-
-Arcade.prototype.showGames = function(gamesObj) {
-    gamesHtml = HandlebarsTemplates['show_games']({
-          games: gamesObj
-    });
-    $('#games-show').html(gamesHtml);
-}
 
 
