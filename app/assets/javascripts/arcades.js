@@ -24,7 +24,8 @@ function clickSpecific() {
                     estYear: jsArcade.estYear,
                     id: jsArcade.id  
                 });
-                $('#arcade-show').html(arcadeHtml); 
+                $('#arcade-show').html(arcadeHtml);
+                $('#games-show').html(""); 
                 gamesClicked(jsArcade)
             });
         } 
