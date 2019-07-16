@@ -33,10 +33,14 @@ function clickSpecific() {
 
 function gamesClicked(arcadeObj) {
     document.getElementById("arcade-games").addEventListener("click", function(event) {
-        console.log("games button clicked")
+        console.log("games button clicked", `/arcades/${arcadeObj.id}/games`)
         event.preventDefault()
-        jsGames = new Game(arcadeObj.games)
-        arcadeObj.showGames(jsGames[0])
+        $.get(`/arcades/${arcadeObj.id}/games`), function (data) {
+            gamesHtml = HandlebarsTemplates['show_games']({
+                games: data
+          });
+          $('#games-show').html(gamesHtml);
+        }
     },false);
 }
 
