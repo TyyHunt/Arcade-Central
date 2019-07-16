@@ -36,7 +36,7 @@ function gamesClicked(arcadeObj) {
         console.log("games button clicked")
         event.preventDefault()
         jsGames = new Game(arcadeObj.games)
-        arcadeObj.showGames(jsGames)
+        arcadeObj.showGames(jsGames[0])
     },false);
 }
 

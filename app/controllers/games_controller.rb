@@ -16,6 +16,10 @@ class GamesController < ApplicationController
                 redirect_to root_path
             end
         end
+        respond_to do |f|
+            f.html{render :show}
+            f.json {render json: @game}
+        end
     end
 
 
@@ -25,6 +29,10 @@ class GamesController < ApplicationController
             @games = @arcade.games.abc_order
         else 
             @games = Game.abc_order
+        end
+        respond_to do |f|
+            f.html{render :index}
+            f.json {render json: @games}
         end
     end
 
