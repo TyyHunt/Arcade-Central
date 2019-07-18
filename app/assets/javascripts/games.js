@@ -6,13 +6,12 @@ $(function() {
 function renderGameForm() {
     document.getElementById("new-game-click").addEventListener("click", function(event) {
         event.preventDefault()
-        $('#show-new-game-form').html('<%= escape_javascript(render 'games/form') %>');
-        submitGameForm()
+        
     });
 }
 
 function submitGameForm() {
-    let formSubmit = document.getElementById("new_game");
+    let formSubmit = document.getElementById("new-game");
     formSubmit.onsubmit = function(event) {
         event.preventDefault()
     }
