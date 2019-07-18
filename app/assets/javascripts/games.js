@@ -1,14 +1,14 @@
 $(function() {
     console.log( "games ready!" )
-    renderGameForm()
+//    renderGameForm()
 });
 
-function renderGameForm() {
-    document.getElementById("new-game-click").addEventListener("click", function(event) {
-        event.preventDefault()
+//function renderGameForm() {
+//    document.getElementById("new-game-click").addEventListener("click", function(event) {
+//        event.preventDefault()
         
-    });
-}
+//    });
+//}
 
 function submitGameForm() {
     let formSubmit = document.getElementById("new-game");

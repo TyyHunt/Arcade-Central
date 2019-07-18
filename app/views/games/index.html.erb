@@ -1,10 +1,11 @@
 <h1 class="page-headers">GAMES</h1>
 <br>
 <div class="row">
-    <div class="col-6 new-path">
-        <%= link_to "Create New Game", new_game_path, :id => "new-game-click", remote: true %>
+    <div class="col-6 new-path" id="new-game-click">
+        <%= link_to "Create New Game", new_game_path, remote: true %>
         <div id="show-new-game-form">
         </div>
+        <br>
     </div>
 </div>
 <% if @arcade %>
@@ -21,5 +22,4 @@
         </div>
     </div>
 <% end %>
-<br>
 <%= render 'game' %>
