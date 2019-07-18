@@ -16,10 +16,6 @@ class GamesController < ApplicationController
                 redirect_to root_path
             end
         end
-        respond_to do |f|
-            f.html{render :show}
-            f.json {render json: @game}
-        end
     end
 
 
