@@ -27,6 +27,7 @@ class GamesController < ApplicationController
             @games = Game.abc_order
         end
         respond_to do |f|
+            f.js
             f.html{render :index}
             f.json {render json: @games}
         end
@@ -41,12 +42,21 @@ class GamesController < ApplicationController
         security
         @arcade = Arcade.find_by(id: params[:arcade_id])
         @game = Game.new
+        respond_to do |f|
+            f.js
+            f.html{render :new}
+            f.json {render json: @game}
+        end
     end
 
     def create
         @game = Game.new(game_params)
-        if @game.valid?
-            @game.save
+        if @game.save
+            respond_to do |f|
+                f.js
+                f.html{render :show}
+                f.json {render json: @game}
+            end
             redirect_to game_path(@game)
         else
             render 'new'

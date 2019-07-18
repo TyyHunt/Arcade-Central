@@ -6,7 +6,7 @@ $(function() {
 function renderGameForm() {
     document.getElementById("new-game-click").addEventListener("click", function(event) {
         event.preventDefault()
-        $('#show-new-game-form').html(gameFormContents());
+        $('#show-new-game-form').html('<%= escape_javascript(render 'games/form') %>');
         submitGameForm()
     });
 }
@@ -15,6 +15,17 @@ function submitGameForm() {
     let formSubmit = document.getElementById("new_game");
     formSubmit.onsubmit = function(event) {
         event.preventDefault()
+    }
+}
+
+
+class Game {
+    constructor(obj) {
+        this.id = obj.id
+        this.name = obj.name
+        this.numPlayers = obj.num_players
+        this.cost = obj.cost
+        this.working = obj.working
     }
 }
 
