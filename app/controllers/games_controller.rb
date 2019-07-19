@@ -51,13 +51,13 @@ class GamesController < ApplicationController
 
     def create
         @game = Game.new(game_params)
-        respond_to do |f|
-            f.js
-            f.html{render :show}
-            f.json {render json: @game}
-        end
         if @game.save
-            redirect_to game_path(@game)
+            respond_to do |f|
+                f.js
+                f.html{render :show}
+                f.json {render json: @game}
+            end
+            @games = Game.abc_order
         else
             render 'new'
         end

@@ -1,5 +1,4 @@
-<div class="container" id="game-holder">
-    <% @games.each do |game| %>
+<div class="container">
         <div class="card text-white bg-secondary mb-3 float-left inline" style="max-width: 18rem; height: 400px; width: 700px; margin: 30px;">
             <div class="card-header">
                 <h4><%= game.name %><h4>
@@ -13,5 +12,4 @@
                 <%= link_to 'Check this game out', game_path(game) %>
             </div>
         </div>
-    <% end %>
 </div>

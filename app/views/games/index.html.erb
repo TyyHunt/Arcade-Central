@@ -3,8 +3,6 @@
 <div class="row">
     <div class="col-6 new-path" id="new-game-click">
         <%= link_to "Create New Game", new_game_path, remote: true %>
-        <div id="show-new-game-form">
-        </div>
         <br>
     </div>
 </div>
@@ -22,4 +20,6 @@
         </div>
     </div>
 <% end %>
-<%= render 'game' %>
+<div id="game-holder">
+    <%= render partial: 'game', collection: @games %>
+</div>

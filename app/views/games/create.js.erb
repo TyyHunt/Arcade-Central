@@ -1,2 +1,5 @@
-$('#show-new-game-form').html('<%= escape_javascript(render :partial => "games/form") %>')
+$('#new-game-click form').remove();
+$('#new-game-click a').show();
+$('.new-edit-form.card').remove();
+$('#game-holder').html("<%= j render @games.abc_order %>")
 console.log("hello")

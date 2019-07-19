@@ -1,2 +1,2 @@
 console.log('connected')
-$('#new-game-click a').parent().html("<%= j render 'form', game: @game %>")
+$('#new-game-click a').hide().parent().append("<%= j render 'form', game: @game %>")
