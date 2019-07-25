@@ -5,21 +5,25 @@ class GamesController < ApplicationController
             @arcade = Arcade.find(params[:arcade_id])
             @game = @arcade.games[params[:id].to_i]
             if @game != nil
-                arcade_game_path(@game)
+                respond_to do |f|
+                    f.js
+                    f.html{render :show}
+                    f.json {render json: @game}
+                end
             else
                 redirect_to arcade_path(@arcade)
             end
         else @game = Game.find_by(id: params[:id]) 
             if @game != nil
              @arcade = @game.arcade
+                respond_to do |f|
+                    f.js
+                    f.html{render :show}
+                    f.json {render json: @game}
+                end
             else
                 redirect_to root_path
             end
-        end
-        respond_to do |f|
-            f.js
-            f.html{render :index}
-            f.json {render json: @game}
         end
     end
 
