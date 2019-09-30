@@ -10,7 +10,7 @@
 100.times do 
     Player.create(
         username: Faker::Name.unique.name,
-        age: Faker::Number.number(2),
+        age: Faker::Number.number(digits: 2),
         allowance: 5.00,
         password: 'password'
         )
@@ -20,8 +20,8 @@ end
     Arcade.create(
         name: Faker::Company.unique.name,
         location: Faker::Address.unique.city,
-        open_time: Faker::Number.number(1),
-        close_time: Faker::Number.number(1),
+        open_time: Faker::Number.number(digits: 1),
+        close_time: Faker::Number.number(digits: 1),
         est_year: 1999,
         owner_name: Faker::Name.unique.name
         )
@@ -30,10 +30,10 @@ end
 100.times do 
     Game.create(
         name: Faker::Superhero.name,
-        num_players: Faker::Number.between(1, 6),
+        num_players: Faker::Number.between(from: 1,to: 6),
         cost: 0.25,
         working: Faker::Boolean.boolean,
-        arcade_id: Faker::Number.number(1),
-        player_id: Faker::Number.number(2)
+        arcade_id: Faker::Number.number(digits: 1),
+        player_id: Faker::Number.number(digits: 2)
         )
 end

@@ -12,8 +12,8 @@ function clickSpecific() {
                 let result = data.filter(obj => {
                     if (obj.name === arcadeName) {
                         return obj;
-                      }
-                  })
+                    }
+                })
                 let jsArcade = new Arcade(result[0])
                 console.log(jsArcade)
                 arcadeHtml = HandlebarsTemplates['show_arcade']({ 
@@ -40,12 +40,11 @@ function clickSpecific() {
                         </div>
                     `)
                 }).sort().join('')
-                console.log(gamesHtml)
                 $('#arcade-show').html(arcadeHtml);
                 $('#games-show').html(gamesHtml); 
             });
         } 
-      });
+    });
 }
 
 function gamesClicked(arcadeObj) {

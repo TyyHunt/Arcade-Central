@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 resources :arcades do
     resources :games
   end
- 
+
   resources :games, only: [:index, :show, :new, :create, :edit, :update]
   resources :players
 
