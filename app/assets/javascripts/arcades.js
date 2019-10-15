@@ -4,6 +4,7 @@ $(function() {
 });
 
 function clickSpecific() {
+    console.log("click loaded")
     document.body.addEventListener("click", event => {
         if (event.target.nodeName == "BUTTON") {
             console.log("button pressed")
