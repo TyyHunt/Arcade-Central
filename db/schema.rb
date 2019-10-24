@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_05_18_153201) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "arcades", force: :cascade do |t|
     t.string "name"
     t.string "location"
